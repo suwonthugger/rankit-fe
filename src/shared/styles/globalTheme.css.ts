@@ -40,7 +40,7 @@ const lineHeights = {
   xsmall: '120%',
 };
 
-export const theme = createGlobalTheme(':root', {
+export const globalTheme = createGlobalTheme(':root', {
   fonts: {
     titleBold64: {
       fontSize: fontSizes.titleBold64,
