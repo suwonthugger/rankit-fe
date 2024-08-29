@@ -1,5 +1,8 @@
 import type { Metadata } from 'next';
+import Footer from '@/shared/components/layout/footer/footer';
+import Header from '@/shared/components/layout/header/header';
 import '@/shared/styles/globals.css';
+import { mainStyle } from './layout.css';
 
 export const metadata: Metadata = {
   title: 'Rankit',
@@ -13,7 +16,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body>{children}</body>
+      <body>
+        <Header />
+        <main className={mainStyle}>{children}</main>
+        <Footer />
+      </body>
     </html>
   );
 }

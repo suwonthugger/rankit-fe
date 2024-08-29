@@ -1,5 +1,4 @@
 import { globalStyle } from '@vanilla-extract/css';
-
 import { reset } from './layers.css';
 
 globalStyle(
@@ -34,6 +33,19 @@ globalStyle('html', {
       MozTextSizeAdjust: 'none',
       WebkitTextSizeAdjust: 'none',
       textSizeAdjust: 'none',
+    },
+  },
+});
+
+/**
+ * default body style
+ */
+globalStyle('body', {
+  '@layer': {
+    [reset]: {
+      display: 'flex',
+      flexDirection: 'column',
+      minHeight: '100vh',
     },
   },
 });
