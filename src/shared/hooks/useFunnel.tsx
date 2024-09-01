@@ -13,14 +13,14 @@ export const useFunnel = (defaultStep: string) => {
   const [step, setStep] = useState(defaultStep);
 
   const Step = ({ children }: StepProps) => {
-    return { children };
+    return <>{children}</>;
   };
 
   const Funnel = ({ children }: FunnelProps) => {
     const targetStep = children.find(
       (childStep) => childStep.props.name === step,
     );
-    return { targetStep };
+    return <>{targetStep}</>;
   };
 
   return { Funnel, Step, setStep, currentStep: step };

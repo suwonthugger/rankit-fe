@@ -12,7 +12,14 @@ export const topDivStyle = style({
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
+  flexWrap: 'wrap',
   width: '100%',
+
+  '@media': {
+    '(max-width: 1180px)': {
+      marginBottom: '4rem',
+    },
+  },
 });
 
 export const headingStyle = style({
