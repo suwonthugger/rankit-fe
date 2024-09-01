@@ -12,11 +12,10 @@ export const sectionStyle = style({
   justifyContent: 'space-between',
   alignItems: 'center',
   flexWrap: 'wrap',
-  height: '100%',
 
   '@media': {
     '(max-width: 1180px)': {
-      height: '95%',
+      height: '80%',
     },
   },
 });
@@ -36,19 +35,18 @@ export const rightDivStyle = style({
   gap: '2.4rem',
 });
 
-export const checkboxButtonStyle = style({
+export const rightDivParagraphStyle = style({
   ...globalTheme.fonts.bodyReg16,
   display: 'flex',
   alignItems: 'center',
   gap: '1.2rem',
 });
 
-export const authNumberDivStyle = style({
+export const nextDivStyle = style({
   display: 'flex',
   position: 'relative',
   flexDirection: 'column',
   gap: '2.4rem',
-  marginTop: '3.2rem',
 });
 
 export const skipButtonStyle = style({
