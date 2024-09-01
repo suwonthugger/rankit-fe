@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Logo from '@/shared/assets/svg/logo.svg';
+import Logo from '@/shared/assets/svg/logo_sm.svg';
 import Profile from '@/shared/assets/svg/profile.svg';
 import { contentStyle, headerStyle, navStyle } from './header.css';
 
