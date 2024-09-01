@@ -12,9 +12,11 @@ export const sectionStyle = style({
   justifyContent: 'space-between',
   alignItems: 'center',
   flexWrap: 'wrap',
+  height: '100%',
 
   '@media': {
     '(max-width: 1180px)': {
+      justifyContent: 'center',
       height: '80%',
     },
   },

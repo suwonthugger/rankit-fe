@@ -9,7 +9,11 @@ import {
   topParagraphStyle,
 } from './authGithub.css';
 
-const AuthGithub = () => {
+interface AuthGtihubProps {
+  handleNextStep: (step: string) => void;
+}
+
+const AuthGithub = ({ handleNextStep }: AuthGtihubProps) => {
   return (
     <section className={sectionStyle}>
       <div className={topDivStyle}>
@@ -29,7 +33,9 @@ const AuthGithub = () => {
         <p className={bottomParagraphStyle}>깃허브 계정을 연결하세요.</p>
 
         <span>
-          <Button>Git 소셜 로그인</Button>
+          <Button onClick={() => handleNextStep('school')}>
+            Git 소셜 로그인
+          </Button>
         </span>
       </div>
     </section>

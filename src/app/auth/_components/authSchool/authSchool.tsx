@@ -12,7 +12,11 @@ import {
   skipButtonStyle,
 } from './authSchool.css';
 
-const AuthSchool = () => {
+interface AuthSchoolProps {
+  handleNextStep: (step: string) => void;
+}
+
+const AuthSchool = ({ handleNextStep }: AuthSchoolProps) => {
   return (
     <section className={sectionStyle}>
       <div>
@@ -45,7 +49,12 @@ const AuthSchool = () => {
           <Input placeholder="인증번호 입력" />
 
           <div className={flexCenter}>
-            <Button>다음</Button>
+            <Button
+              onClick={() => {
+                handleNextStep('region');
+              }}>
+              다음
+            </Button>
           </div>
 
           <button className={skipButtonStyle}>건너뛰기</button>

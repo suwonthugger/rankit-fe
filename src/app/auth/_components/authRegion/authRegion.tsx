@@ -11,7 +11,11 @@ import {
   skipButtonStyle,
 } from './authRegion.css';
 
-const AuthRegion = () => {
+interface AuthRegionProps {
+  handleNextStep: (step: string) => void;
+}
+
+const AuthRegion = ({ handleNextStep }: AuthRegionProps) => {
   return (
     <section className={sectionStyle}>
       <div>
@@ -36,7 +40,9 @@ const AuthRegion = () => {
         </p>
 
         <div className={nextDivStyle}>
-          <div className={flexCenter}>
+          <div
+            className={flexCenter}
+            onClick={() => handleNextStep('completion')}>
             <Button>다음</Button>
           </div>
 
