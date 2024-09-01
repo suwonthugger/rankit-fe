@@ -4,7 +4,7 @@ export const mainStyle = style({
   display: 'flex',
   flexGrow: 1,
   margin: '0 auto',
-  padding: '3.8rem',
+  padding: '0 3.8rem',
   width: '1180px',
 
   '@media': {
