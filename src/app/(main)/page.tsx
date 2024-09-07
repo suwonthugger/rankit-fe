@@ -22,9 +22,9 @@ import {
   topDivSpanStyle,
   topDivStyle,
   topParagraphStyle,
-} from './main.css';
+} from './mainPage.css';
 
-export default function Main() {
+export default function MainPage() {
   const bottomDivRef = useRef<HTMLDivElement | null>(null);
 
   const handleScrollToButtons = () => {
