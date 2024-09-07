@@ -171,6 +171,7 @@ export const globalTheme = createGlobalTheme(':root', {
     blue_66: '#666E7A',
     gray_71: '#717171',
     gray_A8: '#A8A8A8',
+    gray_D7: '#D7D7D7',
 
     error: '#FF5F5F',
     error_press: '#C42424',

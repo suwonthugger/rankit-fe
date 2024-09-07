@@ -33,6 +33,9 @@ globalStyle('html', {
       MozTextSizeAdjust: 'none',
       WebkitTextSizeAdjust: 'none',
       textSizeAdjust: 'none',
+      WebkitFontSmoothing: 'antialiased', // 피그마 디자인을 적용하기 위한 옵션
+      MozOsxFontSmoothing: 'grayscale', // 피그마 디자인을 적용하기 위한 옵션
+      fontSmooth: 'never', // 피그마 디자인을 적용하기 위한 옵션
     },
   },
 });
