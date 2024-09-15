@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import CircleImage from '../circleImage/circleImage';
 import {
   rankBoardContainerStyle,
   rankBoardheaderStyle,
@@ -128,17 +129,7 @@ const RankBoard = ({ variant = 'default', title = '학교명' }: RankBoard) => {
             <p className={rankBoardItemStyle['sm']}>1</p>
 
             <div className={rankBoardItemStyle['lg']}>
-              {variant === 'img' && (
-                <div className={rankBoardImgeContainer}>
-                  <Image
-                    src={item.src}
-                    width={460}
-                    height={460}
-                    alt={'프로필 이미지'}
-                    className={rankBoardImageStyle}
-                  />
-                </div>
-              )}
+              {variant === 'img' && <CircleImage src={item.src} />}
               <p>순dsadsa위</p>
             </div>
 
