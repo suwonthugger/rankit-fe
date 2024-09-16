@@ -2,7 +2,15 @@ import { style } from '@vanilla-extract/css';
 import { globalTheme } from '@/shared/styles/globalTheme.css';
 
 export const divStyle = style({
-  width: '100%',
+  margin: '0 auto',
+  padding: '0 3.8rem',
+  width: '1180px',
+
+  '@media': {
+    '(max-width: 1180px)': {
+      width: '100%',
+    },
+  },
 });
 
 export const sectionStyle = style({
