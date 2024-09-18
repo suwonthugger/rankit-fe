@@ -1,4 +1,5 @@
 {
   "extends": ["next/core-web-vitals", "plugin:@tanstack/query/recommended"],
-  "plugins": ["@tanstack/query"]
+  "plugins": ["@tanstack/query"],
+  "ignorePatterns": ["packages/styles/**/*"]
 }

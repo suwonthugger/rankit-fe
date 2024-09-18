@@ -1,32 +1,21 @@
 {
   "name": "rankit",
-  "version": "0.1.0",
   "private": true,
+  "packageManager": "pnpm@9.2.0",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "test": "turbo run test"
   },
-  "dependencies": {
-    "@tanstack/react-query": "^5.52.1",
-    "@vanilla-extract/css": "^1.15.5",
-    "@vanilla-extract/dynamic": "^2.1.2",
-    "axios": "^1.7.5",
-    "next": "14.2.6",
-    "react": "^18",
-    "react-dom": "^18"
+  "tasks": {
+    "build": {
+      "outputs": [
+        "dist/**"
+      ]
+    }
   },
   "devDependencies": {
-    "@svgr/webpack": "^8.1.0",
-    "@tanstack/eslint-plugin-query": "^4.38.0",
-    "@trivago/prettier-plugin-sort-imports": "^4.3.0",
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "@vanilla-extract/next-plugin": "^2.4.5",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.6",
-    "typescript": "^5"
+    "turbo": "latest"
   }
 }

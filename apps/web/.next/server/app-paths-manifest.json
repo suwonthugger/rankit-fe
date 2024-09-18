@@ -1,0 +1,17 @@
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/@modal/user/[userId]/(.)school-setting/page": "app/@modal/user/[userId]/(.)school-setting/page.js",
+  "/@modal/user/[userId]/(.)main-setting/page": "app/@modal/user/[userId]/(.)main-setting/page.js",
+  "/about/page": "app/about/page.js",
+  "/board/page": "app/board/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/(main)/page": "app/(main)/page.js",
+  "/user/[userId]/region-setting/page": "app/user/[userId]/region-setting/page.js",
+  "/user/[userId]/school-setting/page": "app/user/[userId]/school-setting/page.js",
+  "/region/page": "app/region/page.js",
+  "/school/page": "app/school/page.js",
+  "/user/[userId]/page": "app/user/[userId]/page.js",
+  "/auth/page": "app/auth/page.js",
+  "/@modal/user/[userId]/(.)region-setting/page": "app/@modal/user/[userId]/(.)region-setting/page.js",
+  "/user/[userId]/main-setting/page": "app/user/[userId]/main-setting/page.js"
+}
