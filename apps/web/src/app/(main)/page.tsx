@@ -3,6 +3,7 @@
 import { Button, Input } from '@rankit/ui';
 import Link from 'next/link';
 import { useRef } from 'react';
+import { useQuery } from '@tanstack/react-query';
 import ArrowDownIcon from '@/shared/assets/svg/arrow_down.svg';
 import GraduationCapIcon from '@/shared/assets/svg/graduationCap.svg';
 import MapIcon from '@/shared/assets/svg/map.svg';

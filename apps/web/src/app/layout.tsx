@@ -1,5 +1,6 @@
 import '@rankit/styles/src/globals.css';
 import type { Metadata } from 'next';
+import ReactQueryProviders from '@/shared/apis/ReactQueryClientProvider';
 import Footer from '../shared/components/layout/footer/footer';
 import Header from '../shared/components/layout/header/header';
 import { mainStyle } from './layout.css';
@@ -17,13 +18,15 @@ export default function RootLayout({
   modal: React.ReactNode;
 }>) {
   return (
-    <html lang="ko">
-      <body>
-        {modal}
-        <Header />
-        <main className={mainStyle}>{children}</main>
-        <Footer />
-      </body>
-    </html>
+    <ReactQueryProviders>
+      <html lang="ko">
+        <body>
+          {modal}
+          <Header />
+          <main className={mainStyle}>{children}</main>
+          <Footer />
+        </body>
+      </html>
+    </ReactQueryProviders>
   );
 }
