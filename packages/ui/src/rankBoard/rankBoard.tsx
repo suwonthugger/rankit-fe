@@ -1,15 +1,18 @@
 import CircleImage from '../circleImage/circleImage';
 import {
   rankBoardContainerStyle,
-  rankBoardheaderStyle,
+  rankBoardHeaderStyle,
   rankBoardRowStyle,
   rankBoardListStyle,
-  rankBoardItemStyle,
+  rankBoardItemLargeStyle,
+  rankBoardItemSmallStyle,
 } from './rankBoard.css';
 
 interface RankBoard {
+  device?: 'desktop' | 'mobile';
   variant?: 'default' | 'img';
   title?: string;
+  className: string;
 }
 
 const USER_RANK = [
@@ -111,10 +114,15 @@ const USER_RANK = [
   },
 ];
 
-const RankBoard = ({ variant = 'default', title = '학교명' }: RankBoard) => {
+const RankBoard = ({
+  device = 'desktop',
+  variant = 'default',
+  title = '학교명',
+  className,
+}: RankBoard) => {
   return (
-    <div className={rankBoardContainerStyle}>
-      <div className={rankBoardheaderStyle}>
+    <div className={`${rankBoardContainerStyle[device]} ${className}`}>
+      <div className={rankBoardHeaderStyle[device]}>
         <h3>순위</h3>
         <h3>{title}</h3>
         <h3>점수</h3>
@@ -123,14 +131,14 @@ const RankBoard = ({ variant = 'default', title = '학교명' }: RankBoard) => {
       <ul className={rankBoardListStyle}>
         {USER_RANK.map((item) => (
           <li key={item.name} className={rankBoardRowStyle}>
-            <p className={rankBoardItemStyle['sm']}>1</p>
+            <p className={rankBoardItemSmallStyle[device]}>1</p>
 
-            <div className={rankBoardItemStyle['lg']}>
+            <div className={rankBoardItemLargeStyle[device]}>
               {variant === 'img' && <CircleImage src={item.src} />}
               <p>순dsadsa위</p>
             </div>
 
-            <p className={rankBoardItemStyle['sm']}>
+            <p className={rankBoardItemSmallStyle[device]}>
               {item.score.toLocaleString()}
             </p>
           </li>

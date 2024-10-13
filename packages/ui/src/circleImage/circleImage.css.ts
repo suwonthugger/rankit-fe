@@ -1,6 +1,18 @@
 import { style, styleVariants } from '@vanilla-extract/css';
 
 export const divStyle = styleVariants({
+  mobileSm: {
+    borderRadius: '50%',
+    width: '24px',
+    height: '24px',
+    overflow: 'hidden',
+  },
+  mobileLg: {
+    borderRadius: '50%',
+    width: '124px',
+    height: '124px',
+    overflow: 'hidden',
+  },
   sm: {
     borderRadius: '50%',
     width: '32px',

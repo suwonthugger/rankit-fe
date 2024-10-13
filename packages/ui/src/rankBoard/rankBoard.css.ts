@@ -1,7 +1,7 @@
 import { globalTheme } from '@rankit/styles';
 import { style, styleVariants } from '@vanilla-extract/css';
 
-export const rankBoardContainerStyle = style({
+const commonRankBoardContainerStyle = style({
   display: 'flex',
   flexDirection: 'column',
   border: `0.1rem solid ${globalTheme.colors.gray_stroke_E2}`,
@@ -12,15 +12,48 @@ export const rankBoardContainerStyle = style({
   boxShadow: '0px 0px 4px 0px rgba(0, 0, 0, 0.25)',
 });
 
-export const rankBoardheaderStyle = style({
-  ...globalTheme.fonts.bodyReg16,
+export const rankBoardContainerStyle = styleVariants({
+  desktop: [
+    commonRankBoardContainerStyle,
+    {
+      ...globalTheme.fonts.bodyReg16,
+      width: '57.6rem',
+      height: '81.6rem',
+    },
+  ],
+  mobile: [
+    commonRankBoardContainerStyle,
+    {
+      ...globalTheme.fonts.mobileBodyReg16,
+      width: '35.1rem',
+      height: '60rem',
+    },
+  ],
+});
+
+const commonRankBoardHeaderStyle = style({
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
-  padding: '1.2rem 4.8rem',
   borderBottom: `0.1rem solid ${globalTheme.colors.blue_main}`,
-  height: '4.8rem',
   color: globalTheme.colors.gray_71,
+});
+
+export const rankBoardHeaderStyle = styleVariants({
+  desktop: [
+    commonRankBoardHeaderStyle,
+    {
+      padding: '1.2rem 4.8rem',
+      height: '4.8rem',
+    },
+  ],
+  mobile: [
+    commonRankBoardHeaderStyle,
+    {
+      padding: '1.1rem 2.3rem 1rem 2.3rem',
+      height: '3.5rem',
+    },
+  ],
 });
 
 export const rankBoardListStyle = style({
@@ -30,7 +63,6 @@ export const rankBoardListStyle = style({
 });
 
 export const rankBoardRowStyle = style({
-  ...globalTheme.fonts.bodyReg16,
   display: 'flex',
   justifyContent: 'space-between',
   padding: '1.6rem 0',
@@ -49,5 +81,31 @@ export const rankBoardItemStyle = styleVariants({
   },
   sm: {
     width: '12rem',
+  },
+});
+
+export const rankBoardItemLargeStyle = styleVariants({
+  desktop: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    gap: '0.8rem',
+    width: '20rem',
+  },
+  mobile: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    gap: '0.8rem',
+    width: '13rem',
+  },
+});
+
+export const rankBoardItemSmallStyle = styleVariants({
+  desktop: {
+    width: '12rem',
+  },
+  mobile: {
+    width: '8rem',
   },
 });

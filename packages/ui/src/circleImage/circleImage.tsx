@@ -3,7 +3,7 @@ import { divStyle, imageStyle } from './circleImage.css';
 
 interface CircleImageProps {
   src?: string;
-  size?: 'sm' | 'lg';
+  size?: 'mobileSm' | 'mobileLg' | 'sm' | 'lg';
 }
 
 const CircleImage = ({

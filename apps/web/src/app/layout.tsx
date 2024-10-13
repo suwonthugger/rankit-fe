@@ -18,15 +18,15 @@ export default function RootLayout({
   modal: React.ReactNode;
 }>) {
   return (
-    <ReactQueryProviders>
-      <html lang="ko">
-        <body>
+    <html lang="ko">
+      <body>
+        <ReactQueryProviders>
           {modal}
           <Header />
           <main className={mainStyle}>{children}</main>
           <Footer />
-        </body>
-      </html>
-    </ReactQueryProviders>
+        </ReactQueryProviders>
+      </body>
+    </html>
   );
 }
