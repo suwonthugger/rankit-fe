@@ -1,5 +1,5 @@
-import { globalTheme } from '@rankit/styles';
 import { style } from '@vanilla-extract/css';
+import { globalTheme } from '@/shared/styles/globalTheme.css';
 
 export const containerStyle = style({
   marginRight: '9rem',

@@ -1,5 +1,5 @@
-import { globalTheme } from '@rankit/styles';
 import { style } from '@vanilla-extract/css';
+import { globalTheme } from '@/shared/styles/globalTheme.css';
 
 export const containerStyle = style({
   border: `1px solid ${globalTheme.colors.gray_stroke}`,

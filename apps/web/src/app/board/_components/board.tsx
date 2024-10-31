@@ -1,4 +1,4 @@
-import { CircleImage } from '@rankit/ui';
+import CircleImage from '@/shared/components/circleImage/circleImage';
 import {
   boardContainerStyle,
   boardHeaderStyle,

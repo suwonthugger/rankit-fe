@@ -1,5 +1,5 @@
-import { Input } from '@rankit/ui';
 import React from 'react';
+import Input from '@/shared/components/input/input';
 import Board from './_components/board';
 import {
   containerStyle,

@@ -1,4 +1,4 @@
-import { Input } from '@rankit/ui/index';
+import Input from '@/shared/components/input/input';
 import Board from './_components/board';
 import {
   divStyle,

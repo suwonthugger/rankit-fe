@@ -1,7 +1,9 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
+import useClickOutside from '@/shared/hooks/useClickOutside';
+import { getAuthHeader } from '@/shared/utils/auth';
 import CloseIcon from '@/shared/assets/svgs/close_icon.svg';
 import HamburgerIcon from '@/shared/assets/svgs/menu_icon.svg';
 import Logo from '@/shared/assets/svgs/rankit_logo.svg';
@@ -17,8 +19,13 @@ import {
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const handleToggleMenu = () => setIsMenuOpen((prev) => !prev);
+  const handleMenuClose = () => setIsMenuOpen(false);
 
-  const isLoggedIn = true;
+  const menuRef = useRef(null);
+
+  useClickOutside(menuRef, handleMenuClose);
+
+  const token = !!getAuthHeader();
 
   return (
     <header className={headerStyle}>
@@ -28,9 +35,13 @@ const Header = () => {
         </Link>
 
         <div className={topRightDivStyle}>
-          <button className={buttonStyle[isLoggedIn ? 'primary' : 'secondary']}>
-            {isLoggedIn ? '로그인' : '내정보'}
-          </button>
+          {token ? (
+            <button className={buttonStyle['secondary']}>내정보</button>
+          ) : (
+            <Link href="/auth?step=github">
+              <button className={buttonStyle['primary']}>로그인</button>
+            </Link>
+          )}
 
           <button onClick={handleToggleMenu}>
             {isMenuOpen ? <CloseIcon /> : <HamburgerIcon />}
@@ -39,7 +50,7 @@ const Header = () => {
       </div>
 
       <nav onClick={handleToggleMenu}>
-        <ul className={ulStyle[isMenuOpen ? 'open' : 'close']}>
+        <ul ref={menuRef} className={ulStyle[isMenuOpen ? 'open' : 'close']}>
           <li>
             <Link href="/school">
               <div className={listStyle}>school rank</div>

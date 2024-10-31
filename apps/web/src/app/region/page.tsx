@@ -1,4 +1,8 @@
-import { RankBoard, Input } from '@rankit/ui';
+'use client';
+
+import Input from '@/shared/components/input/input';
+import RankBoard from '@/shared/components/rankBoard/rankBoard';
+import { useGetRegionList } from '@/shared/apis/region/queries';
 import {
   containerStyle,
   headingStyle,
@@ -9,6 +13,9 @@ import {
 } from './regionPage.css';
 
 const RegionPage = () => {
+  const { data, isLoading, fetchNextPage, hasNextPage, isFetchingNextPage } =
+    useGetRegionList({});
+
   return (
     <div className={containerStyle}>
       <div className={leftDivStyle}>
@@ -30,7 +37,23 @@ const RegionPage = () => {
 
       <div className={rightDivStyle}>
         <Input variant="search" placeholder="대학교 검색" />
-        <RankBoard />
+        <RankBoard
+          title="지역명"
+          fetchNextPage={fetchNextPage}
+          hasNextPage={hasNextPage}
+          isFetchingNextPage={isFetchingNextPage}
+          isLoading={isLoading}>
+          {data?.pages.map((page) =>
+            page.regionList.map((user) => (
+              <RankBoard.ListItem
+                key={user.regionlName}
+                rank={user.regionRank}
+                name={user.regionlName}
+                score={user.regionScore}
+              />
+            )),
+          )}
+        </RankBoard>
       </div>
     </div>
   );

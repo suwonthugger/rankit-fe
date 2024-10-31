@@ -1,21 +1,28 @@
-import Link from 'next/link';
+'use client';
+
+import { useRouter } from 'next/navigation';
+import { useQueryClient } from '@tanstack/react-query';
 import Button from '@/shared/components/button/button';
 import Logo from '@/shared/assets/svgs/big_logo.svg';
 import { buttonStyle, headingStyle, iconStyle } from './authCompletion.css';
 
-interface AuthCompletionProps {
-  handleNextStep: (step: string) => void;
-}
+const AuthCompletion = () => {
+  const queryClient = useQueryClient();
+  const router = useRouter();
 
-const AuthCompletion = ({ handleNextStep }: AuthCompletionProps) => {
+  const handleHomeClick = () => {
+    queryClient.invalidateQueries({ queryKey: ['userInfo'] });
+    router.push('/');
+  };
+
   return (
     <>
       <h1 className={headingStyle}>가입을 축하드립니다.</h1>
 
       <Logo className={iconStyle} />
 
-      <Button className={buttonStyle}>
-        <Link href="/">홈으로 돌아가기</Link>
+      <Button onClick={handleHomeClick} className={buttonStyle}>
+        홈으로 돌아가기
       </Button>
     </>
   );

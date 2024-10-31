@@ -1,4 +1,5 @@
-import { Button, Input } from '@rankit/ui';
+import Button from '@/shared/components/button/button';
+import Input from '@/shared/components/input/input';
 import { DivParagraphStyle, DivStyle } from './modalContentRegionSetting.css';
 
 const ModalContentRegionSetting = () => {

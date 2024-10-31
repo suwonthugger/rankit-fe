@@ -1,9 +1,14 @@
-import { CircleImage } from '@rankit/ui';
+'use client';
+
 import Link from 'next/link';
+import { useGetUserInfo } from '@/shared/apis/auth/queries';
 import Logo from '@/shared/assets/svg/logo_sm.svg';
+import CircleImage from '../../circleImage/circleImage';
 import { contentStyle, headerStyle, navStyle } from './header.css';
 
 const Header = () => {
+  const { data } = useGetUserInfo();
+
   return (
     <header className={headerStyle}>
       <div className={contentStyle}>
@@ -16,9 +21,8 @@ const Header = () => {
           <Link href="/board">board</Link>
           <Link href="/about">about</Link>
         </nav>
-        <Link href={`/user/${1}`}>
-          <CircleImage />
-        </Link>
+
+        <CircleImage src={data?.profileImg} />
       </div>
     </header>
   );

@@ -1,5 +1,9 @@
-import { Input, RankBoard } from '@rankit/ui';
-import React from 'react';
+'use client';
+
+import React, { useRef, useState, KeyboardEvent } from 'react';
+import Input from '@/shared/components/input/input';
+import RankBoard from '@/shared/components/rankBoard/rankBoard';
+import { useGetSchoolList } from '@/shared/apis/school/queries';
 import {
   containerStyle,
   headingStyle,
@@ -10,6 +14,17 @@ import {
 } from './schoolPage.css';
 
 const SchoolPage = () => {
+  const [searchedSchoolName, setSearchedSchoolName] = useState('');
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  const { data, isLoading, fetchNextPage, hasNextPage, isFetchingNextPage } =
+    useGetSchoolList({ searchedSchoolName });
+
+  const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      setSearchedSchoolName(inputRef.current?.value ?? '');
+    }
+  };
   return (
     <div className={containerStyle}>
       <div className={leftDivStyle}>
@@ -30,8 +45,29 @@ const SchoolPage = () => {
       </div>
 
       <div className={rightDivStyle}>
-        <Input variant="search" placeholder="대학교 검색" />
-        <RankBoard />
+        <Input
+          ref={inputRef}
+          variant="search"
+          placeholder="대학교 검색"
+          onKeyDown={handleKeyDown}
+        />
+        <RankBoard
+          title="아이디"
+          fetchNextPage={fetchNextPage}
+          hasNextPage={hasNextPage}
+          isFetchingNextPage={isFetchingNextPage}
+          isLoading={isLoading}>
+          {data?.pages.map((page) =>
+            page.schoolList.map((user) => (
+              <RankBoard.ListItem
+                key={user.schoolName}
+                rank={user.schoolRank}
+                name={user.schoolName}
+                score={user.schoolScore}
+              />
+            )),
+          )}
+        </RankBoard>
       </div>
     </div>
   );

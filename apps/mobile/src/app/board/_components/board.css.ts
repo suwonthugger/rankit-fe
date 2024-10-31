@@ -1,4 +1,4 @@
-import { globalTheme } from '@rankit/styles/dist';
+import { globalTheme } from '@/shared/styles/globalTheme.css';
 import { style } from '@vanilla-extract/css';
 
 export const boardContainerStyle = style({

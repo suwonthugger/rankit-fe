@@ -1,4 +1,4 @@
-import { Button } from '@rankit/ui';
+import Button from '@/shared/components/button/button';
 import Logo from '@/shared/assets/svg/logo_lg.svg';
 import {
   bottomParagraphStyle,
@@ -9,11 +9,12 @@ import {
   topParagraphStyle,
 } from './authGithub.css';
 
-interface AuthGtihubProps {
-  handleNextStep: (step: string) => void;
-}
+const AuthGithub = () => {
+  const 깃허브로그인페이지로이동 = () => {
+    if (process.env.NEXT_PUBLIC_GITHUB_AUTH_URL)
+      window.location.href = process.env.NEXT_PUBLIC_GITHUB_AUTH_URL;
+  };
 
-const AuthGithub = ({ handleNextStep }: AuthGtihubProps) => {
   return (
     <section className={sectionStyle}>
       <div className={topDivStyle}>
@@ -33,9 +34,7 @@ const AuthGithub = ({ handleNextStep }: AuthGtihubProps) => {
         <p className={bottomParagraphStyle}>깃허브 계정을 연결하세요.</p>
 
         <span>
-          <Button onClick={() => handleNextStep('school')}>
-            Git 소셜 로그인
-          </Button>
+          <Button onClick={깃허브로그인페이지로이동}>Git 소셜 로그인</Button>
         </span>
       </div>
     </section>

@@ -1,5 +1,5 @@
-import { globalTheme } from '@rankit/styles';
 import { style } from '@vanilla-extract/css';
+import { globalTheme } from '@/shared/styles/globalTheme.css';
 
 export const heading2Style = style({
   ...globalTheme.fonts.mobileTitleBold28,
@@ -10,6 +10,7 @@ export const heading1Style = style({
   color: globalTheme.colors.blue_main,
 });
 
+globalTheme;
 export const flexColumnCenter = style({
   display: 'flex',
   flexDirection: 'column',
@@ -32,10 +33,13 @@ export const topDivStyle = style({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
+  width: '100vw',
   padding: '3.2rem 2.1rem 4rem 2.1rem',
   paddingTop: '4rem',
   paddingBottom: '3.2rem',
-  backgroundImage: 'url(/images/background.jpg)',
+  backgroundImage: 'url(/images/background.jpeg)',
+  backgroundPosition: 'center',
+  backgroundSize: 'cover',
 });
 
 export const bottomDivStyle = style({
@@ -57,8 +61,4 @@ export const textCenter = style({
 
 export const paragraphStyle = style({
   ...globalTheme.fonts.mobileBodyMed16,
-});
-
-export const boardStyle = style({
-  marginTop: '1.6rem',
 });

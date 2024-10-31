@@ -1,5 +1,5 @@
-import { globalTheme } from '@rankit/styles';
 import { style, createVar, keyframes } from '@vanilla-extract/css';
+import { globalTheme } from '@/shared/styles/globalTheme.css';
 
 const widthVar = createVar();
 

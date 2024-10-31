@@ -1,7 +1,9 @@
-import { Input, RankBoard } from '@rankit/ui/index';
+'use client';
+
 import Button from '@/shared/components/button/button';
+import Input from '@/shared/components/input/input';
+import RankBoardWithTier from './_components/RankBoardWithTier/RankBoardWithTier';
 import {
-  boardStyle,
   bottomDivStyle,
   buttonDivStyle,
   container,
@@ -55,7 +57,7 @@ const MainPage = () => {
           보여드려요(가제)
         </p>
 
-        <RankBoard device="mobile" variant="img" className={boardStyle} />
+        <RankBoardWithTier />
       </div>
     </div>
   );

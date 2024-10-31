@@ -19,9 +19,7 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"],
-      "@rankit/ui/*": ["../../packages/ui/*"],
-      "@rankit/styles/*": ["../../packages/styles/index"]
+      "@/*": ["src/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

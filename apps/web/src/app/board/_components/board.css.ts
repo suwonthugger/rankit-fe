@@ -1,5 +1,5 @@
-import { globalTheme } from '@rankit/styles/dist';
 import { style } from '@vanilla-extract/css';
+import { globalTheme } from '@/shared/styles/globalTheme.css';
 
 export const boardContainerStyle = style({
   display: 'flex',

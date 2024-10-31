@@ -1,9 +1,11 @@
-import '@rankit/styles/src/globals.css';
+import { Theme } from '@radix-ui/themes';
+import '@radix-ui/themes/styles.css';
 import type { Metadata } from 'next';
 import ReactQueryProviders from '@/shared/apis/ReactQueryClientProvider';
+import '@/shared/styles/globals.css';
 import Footer from '../shared/components/layout/footer/footer';
 import Header from '../shared/components/layout/header/header';
-import { mainStyle } from './layout.css';
+import { container, mainStyle } from './layout.css';
 
 export const metadata: Metadata = {
   title: 'Rankit',
@@ -21,10 +23,12 @@ export default function RootLayout({
     <html lang="ko">
       <body>
         <ReactQueryProviders>
-          {modal}
-          <Header />
-          <main className={mainStyle}>{children}</main>
-          <Footer />
+          <Theme className={container}>
+            {modal}
+            <Header />
+            <main className={mainStyle}>{children}</main>
+            <Footer />
+          </Theme>
         </ReactQueryProviders>
       </body>
     </html>

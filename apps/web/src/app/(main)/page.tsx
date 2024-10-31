@@ -1,9 +1,11 @@
 'use client';
 
-import { Button, Input } from '@rankit/ui';
+import { Flex, Spinner } from '@radix-ui/themes';
 import Link from 'next/link';
-import { useRef } from 'react';
-import { useQuery } from '@tanstack/react-query';
+import { useRef, useState } from 'react';
+import Button from '@/shared/components/button/button';
+import Input from '@/shared/components/input/input';
+import { useGetUserList } from '@/shared/apis/main/queries';
 import ArrowDownIcon from '@/shared/assets/svg/arrow_down.svg';
 import GraduationCapIcon from '@/shared/assets/svg/graduationCap.svg';
 import MapIcon from '@/shared/assets/svg/map.svg';
@@ -17,6 +19,7 @@ import {
   headingStyle,
   IconStyle,
   inputDivStyle,
+  InputListPlaceholderStyle,
   topDivContentStyle,
   topDivPragraphStyle,
   topDivSpanStyle,
@@ -25,7 +28,19 @@ import {
 } from './mainPage.css';
 
 export default function MainPage() {
+  const [유저검색키워드, set유저검색키워드] = useState('');
+
+  const { data } = useGetUserList({ searchedname: 유저검색키워드 });
+
+  const filteredData =
+    data?.userList?.filter((user) => user.username.includes(유저검색키워드)) ||
+    [];
+
   const bottomDivRef = useRef<HTMLDivElement | null>(null);
+
+  const handle유저검색키워드변경 = (e: React.ChangeEvent<HTMLInputElement>) => {
+    set유저검색키워드(e.target.value);
+  };
 
   const handleScrollToButtons = () => {
     if (bottomDivRef.current) {
@@ -59,7 +74,28 @@ export default function MainPage() {
           </p>
 
           <div className={inputDivStyle}>
-            <Input variant="search" placeholder="github 아이디 검색" />
+            <Input
+              value={유저검색키워드}
+              onChange={handle유저검색키워드변경}
+              variant="search"
+              placeholder="github 아이디 검색">
+              <Input.List>
+                {filteredData?.length > 0 ? (
+                  filteredData.map((user) => (
+                    <Input.UserItem
+                      userRank={user.userRank}
+                      userName={user.username}
+                      profileImg={user.profileImg}
+                      userScore={user.userscore}
+                    />
+                  ))
+                ) : (
+                  <p className={InputListPlaceholderStyle}>
+                    검색 결과가 없습니다.
+                  </p>
+                )}
+              </Input.List>
+            </Input>
           </div>
 
           <button onClick={handleScrollToButtons}>

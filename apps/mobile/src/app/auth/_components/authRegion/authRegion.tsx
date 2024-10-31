@@ -1,9 +1,12 @@
-import { Input } from '@rankit/ui/index';
+import { useState } from 'react';
 import Button from '@/shared/components/button/button';
+import Input from '@/shared/components/input/input';
+import { useGetRegionNames, usePostAuthJoin } from '@/shared/apis/auth/queries';
 import ArrowBackIcon from '@/shared/assets/svgs/arrow_back.svg';
 import {
   bottomDivStyle,
   container,
+  InputMenuPlaceholderStyle,
   middleDivStyle,
   paragraphStyle,
   skipButtonStyle,
@@ -13,9 +16,43 @@ import {
 
 interface AuthRegionProps {
   handleNextStep: (step: string) => void;
+  대학교: string;
 }
 
-const AuthRegion = ({ handleNextStep }: AuthRegionProps) => {
+const AuthRegion = ({ handleNextStep, 대학교 }: AuthRegionProps) => {
+  const [지역검색키워드, set지역검색키워드] = useState('');
+
+  const { data } = useGetRegionNames();
+  const { mutate } = usePostAuthJoin();
+
+  const filteredData = data?.filter((region: string) =>
+    region.includes(지역검색키워드),
+  );
+
+  const handle지역검색키워드변경 = (e: React.ChangeEvent<HTMLInputElement>) => {
+    set지역검색키워드(e.target.value);
+  };
+
+  const handle지역선택 = (region: string) => {
+    set지역검색키워드(region);
+  };
+
+  console.log(대학교, 지역검색키워드);
+  const handle회원가입 = () => {
+    mutate(
+      { univName: 대학교, regionName: 지역검색키워드 },
+      {
+        onSuccess: () => {
+          handleNextStep('completion');
+        },
+        onError: (error) => {
+          alert('회원가입에 실패했습니다. 다시 시도해주세요.');
+          console.error(error);
+        },
+      },
+    );
+  };
+
   return (
     <div className={container}>
       <div className={topDivStyle}>
@@ -27,7 +64,25 @@ const AuthRegion = ({ handleNextStep }: AuthRegionProps) => {
       </div>
 
       <div className={middleDivStyle}>
-        <Input device="mobile" placeholder="지역 선택" />
+        <Input
+          value={지역검색키워드}
+          onChange={handle지역검색키워드변경}
+          device="mobile"
+          placeholder="지역 선택">
+          <Input.List>
+            {filteredData?.length > 0 ? (
+              filteredData.map((region: string) => (
+                <Input.MenuItem
+                  key={region}
+                  onClick={() => handle지역선택(region)}>
+                  {region}
+                </Input.MenuItem>
+              ))
+            ) : (
+              <p className={InputMenuPlaceholderStyle}>검색 결과가 없습니다.</p>
+            )}
+          </Input.List>
+        </Input>
 
         <p className={paragraphStyle}>
           본인이 거주 및 출생한 지역을 자유롭게 선택할 수 있습니다.
@@ -37,7 +92,7 @@ const AuthRegion = ({ handleNextStep }: AuthRegionProps) => {
       </div>
 
       <div className={bottomDivStyle}>
-        <Button onClick={() => handleNextStep('completion')}>다음</Button>
+        <Button onClick={handle회원가입}>다음</Button>
 
         <button className={skipButtonStyle}>건너뛰기</button>
       </div>

@@ -1,5 +1,5 @@
-import { globalTheme } from '@rankit/styles';
 import { style } from '@vanilla-extract/css';
+import { globalTheme } from '@/shared/styles/globalTheme.css';
 
 export const container = style({
   display: 'flex',
@@ -113,4 +113,11 @@ export const topParagraphStyle = style({
 export const bottomParagraphStyle = style({
   ...globalTheme.fonts.bodySemiBold26,
   color: globalTheme.colors.gray_19,
+});
+
+export const InputListPlaceholderStyle = style({
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  height: '100%',
 });

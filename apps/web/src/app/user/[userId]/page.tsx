@@ -1,4 +1,4 @@
-import { Button } from '@rankit/ui';
+import Button from '@/shared/components/button/button';
 import {
   bottomDivHeadingStyle,
   bottomDivRefreshButtonStyle,

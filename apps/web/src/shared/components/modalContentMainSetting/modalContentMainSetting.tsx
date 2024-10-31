@@ -1,5 +1,5 @@
-import { Button } from '@rankit/ui';
 import Link from 'next/link';
+import Button from '@/shared/components/button/button';
 import {
   headingStyle,
   sectionStyle,

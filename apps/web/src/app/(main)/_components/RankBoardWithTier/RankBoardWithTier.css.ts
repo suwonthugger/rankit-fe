@@ -1,5 +1,5 @@
-import { globalTheme } from '@rankit/styles';
 import { style } from '@vanilla-extract/css';
+import { globalTheme } from '@/shared/styles/globalTheme.css';
 
 export const tierDivStyle = style({
   ...globalTheme.fonts.subheadSemiBold20,

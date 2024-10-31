@@ -1,5 +1,5 @@
-import { globalTheme } from '@rankit/styles';
 import { style } from '@vanilla-extract/css';
+import { globalTheme } from '@/shared/styles/globalTheme.css';
 
 export const flexCenter = style({
   display: 'flex',
@@ -57,4 +57,11 @@ export const skipButtonStyle = style({
   right: 0,
   bottom: 9,
   color: globalTheme.colors.blue_33,
+});
+
+export const InputMenuPlaceholderStyle = style({
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  height: '100%',
 });
