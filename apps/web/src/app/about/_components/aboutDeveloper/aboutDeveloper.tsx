@@ -16,6 +16,7 @@ import {
   userNameStyle,
   userCommentStyle,
   divUserCommentStyle,
+  githubLinkBtnStyle,
 } from './aboutDeveloper.css';
 
 const AboutDeveloper = ({
@@ -49,7 +50,7 @@ const AboutDeveloper = ({
       <div className={divMainContentStyle}>
         <div className={divSubContentStyle1}>
           <p className={userPositionStyle}>{userPosition}</p>
-          <a href={userGithub} className="">
+          <a href={userGithub} className={githubLinkBtnStyle}>
             github 방문
           </a>
         </div>

@@ -46,6 +46,17 @@ export const userPositionStyle = style({
   color: globalTheme.colors.blue_main,
 });
 
+export const githubLinkBtnStyle = style({
+  ...globalTheme.fonts.bodyReg16,
+  color: globalTheme.colors.blue_33,
+  ':hover': {
+    color: globalTheme.colors.blue_hover,
+  },
+  ':active': {
+    color: globalTheme.colors.blue_press,
+  },
+});
+
 export const userNameStyle = style({
   ...globalTheme.fonts.subheadBold20,
   color: globalTheme.colors.gray_19,

@@ -61,6 +61,7 @@ export const rankBoardListStyle = style({
   flexDirection: 'column',
   overflowY: 'auto',
   height: '100%',
+  backgroundColor: globalTheme.colors.white,
 });
 
 export const rankBoardRowStyle = style({
@@ -70,6 +71,7 @@ export const rankBoardRowStyle = style({
   borderBottom: `0.1rem solid ${globalTheme.colors.gray_stroke_E2}`,
   textAlign: 'center',
   color: globalTheme.colors.gray_19,
+  ':hover': { backgroundColor: globalTheme.colors.gray_bg_05 },
 });
 
 export const rankBoardItemStyle = styleVariants({

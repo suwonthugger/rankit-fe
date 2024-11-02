@@ -14,19 +14,13 @@ const BoardPage = () => {
   return (
     <div className={containerStyle}>
       <div className={leftDivStyle}>
-        <h1 className={headingStyle}>
-          고지를
-          <br />
-          선점하기 위해
-          <br />
-          싸워라.
-        </h1>
+        <span className={spanStyle}>보드</span>
         <p className={paragraphStyle}>
-          rankit에서
+          rankit의 모든 유저들이
           <br />
-          분석한 깃허브 점수를
+          자유롭게 소통하는 공간입니다.
           <br />
-          보여드려요(가제)
+          부적절한 멘트는 지양해주세요.
         </p>
       </div>
 

@@ -69,6 +69,8 @@ export const bottomDivHeadingStyle = style({
 export const bottomDivRefreshButtonStyle = style({
   ...globalTheme.fonts.headerReg16,
   color: globalTheme.colors.blue_33,
+  ':hover': { color: globalTheme.colors.blue_hover },
+  ':active': { color: globalTheme.colors.blue_press },
   textAlign: 'end',
 });
 

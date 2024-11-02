@@ -55,7 +55,7 @@ export default function MainPage() {
           <h1 className={headingStyle}>
             우리학교, 우리지역의
             <br />
-            개발 실력을 겨루어보자
+            개발자 만나기
           </h1>
 
           <div className={buttonDivStyle}>

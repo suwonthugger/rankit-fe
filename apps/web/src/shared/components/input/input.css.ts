@@ -23,6 +23,7 @@ export const inputContainerStyle = styleVariants({
     inputContainerCommonStyle,
     {
       ...globalTheme.fonts.subheadSemiBold20,
+
       gap: '1.6rem',
       width: '57.6rem',
       height: '7.2rem',
@@ -132,6 +133,7 @@ export const inputMenuItemStyle = styleVariants({
 
 // Note: 사용자 랭킹 보드 리스트 아이템 스타일 가져옴
 export const rankBoardRowStyle = style({
+  ':hover': { backgroundColor: globalTheme.colors.gray_bg_05 },
   display: 'flex',
   justifyContent: 'space-between',
   padding: '1.6rem 0',

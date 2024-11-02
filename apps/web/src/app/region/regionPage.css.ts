@@ -39,6 +39,7 @@ export const headingStyle = style({
 
 export const spanStyle = style({
   color: globalTheme.colors.blue_main,
+  ...globalTheme.fonts.titleBold32,
 });
 
 export const paragraphStyle = style({

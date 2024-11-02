@@ -46,19 +46,20 @@ const SchoolPage = () => {
   return (
     <div className={containerStyle}>
       <div className={leftDivStyle}>
+        <span className={spanStyle}>학교 랭킹</span>
         <h1 className={headingStyle}>
-          <span className={spanStyle}>대학교</span>의
+          대학교별
           <br />
-          개발 능력 순위를
+          rankit 순위를
           <br />
-          알아보아요.
+          확인해보세요.
         </h1>
         <p className={paragraphStyle}>
-          rankit에서
+          학교명을 눌러서
           <br />
-          분석한 깃허브 점수를
+          교내 유저들의
           <br />
-          보여드려요(가제)
+          순위를 볼 수 있어요.
         </p>
       </div>
 

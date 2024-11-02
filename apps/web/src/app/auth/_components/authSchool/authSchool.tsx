@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import CustomAlertDialog from '@/shared/components/alertDialog/AlertDialog';
 import Button from '@/shared/components/button/button';
 import Input from '@/shared/components/input/input';
 import {
@@ -158,7 +159,23 @@ const AuthSchool = ({ handleNextStep, handle대학교변경 }: AuthSchoolProps) 
             <Button onClick={handle인증번호검증}>다음</Button>
           </div>
 
-          <button className={skipButtonStyle}>건너뛰기</button>
+          <div className={skipButtonStyle}>
+            <CustomAlertDialog
+              att="yesOrNo"
+              variant="textBtn"
+              color="blue"
+              title="알림!"
+              description={[
+                '소속 대학교 등록을 건너뜁니다.',
+                <br key="br" />,
+                '"학교 없음"으로 표시됩니다.',
+              ]}
+              cancelText="취소"
+              confirmText="확인"
+              triggerText="건너뛰기"
+              onConfirm={() => {}}
+            />
+          </div>
         </div>
       </div>
     </section>

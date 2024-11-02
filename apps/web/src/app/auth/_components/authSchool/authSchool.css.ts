@@ -52,11 +52,9 @@ export const authNumberDivStyle = style({
 });
 
 export const skipButtonStyle = style({
-  ...globalTheme.fonts.headerReg16,
   position: 'absolute',
   right: 0,
   bottom: 9,
-  color: globalTheme.colors.blue_33,
 });
 
 export const InputMenuPlaceholderStyle = style({

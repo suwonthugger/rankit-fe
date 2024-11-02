@@ -34,9 +34,19 @@ export const colorVariant = styleVariants({
   primary: {
     backgroundColor: globalTheme.colors.blue_main,
     color: globalTheme.colors.white,
+    ':hover': { backgroundColor: globalTheme.colors.blue_hover },
+    ':active': { backgroundColor: globalTheme.colors.blue_press },
   },
   secondary: {
     backgroundColor: globalTheme.colors.gray_bg_04,
     color: globalTheme.colors.blue_33,
+    ':hover': {
+      backgroundColor: globalTheme.colors.gray_bg_05,
+      color: globalTheme.colors.blue_hover,
+    },
+    ':active': {
+      backgroundColor: globalTheme.colors.gray_bg_03,
+      color: globalTheme.colors.blue_press,
+    },
   },
 });
