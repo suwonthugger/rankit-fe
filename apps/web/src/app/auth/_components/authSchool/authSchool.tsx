@@ -6,8 +6,8 @@ import {
   usePostUnivCertificate,
   usePostUnivValidate,
 } from '@/shared/apis/auth/queries';
-import CheckboxEmptyIcon from '@/shared/assets/svg/check_btn_empty.svg';
-import CheckboxFillIcon from '@/shared/assets/svg/check_btn_fill.svg';
+import CheckboxEmptyIcon from '@/shared/assets/svgs/check_btn_empty.svg';
+import CheckboxFillIcon from '@/shared/assets/svgs/check_btn_fill.svg';
 import {
   authNumberDivStyle,
   checkboxButtonStyle,

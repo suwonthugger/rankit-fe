@@ -3,7 +3,7 @@
 import { useRouter } from 'next/navigation';
 import { useQueryClient } from '@tanstack/react-query';
 import Button from '@/shared/components/button/button';
-import Logo from '@/shared/assets/svg/logo_lg.svg';
+import Logo from '@/shared/assets/svgs/logo_lg.svg';
 import {
   bottomParagraphStyle,
   headingStyle,

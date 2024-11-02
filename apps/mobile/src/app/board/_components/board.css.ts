@@ -1,5 +1,5 @@
-import { globalTheme } from '@/shared/styles/globalTheme.css';
 import { style } from '@vanilla-extract/css';
+import { globalTheme } from '@/shared/styles/globalTheme.css';
 
 export const boardContainerStyle = style({
   display: 'flex',
@@ -27,7 +27,7 @@ export const boardHeaderStyle = style({
 export const boardListStyle = style({
   display: 'flex',
   flexDirection: 'column',
-  overflow: 'auto',
+  overflowY: 'auto',
 });
 
 export const boardRowStyle = style({

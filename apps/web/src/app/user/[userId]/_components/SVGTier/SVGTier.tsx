@@ -1,16 +1,16 @@
 import { SVGAttributes, FC } from 'react';
-import Tier1DefaultIcon from '@/shared/assets/svg/tier/default/tier_1.svg';
-import Tier2DefaultIcon from '@/shared/assets/svg/tier/default/tier_2.svg';
-import Tier3DefaultIcon from '@/shared/assets/svg/tier/default/tier_3.svg';
-import Tier4DefaultIcon from '@/shared/assets/svg/tier/default/tier_4.svg';
-import Tier5DefaultIcon from '@/shared/assets/svg/tier/default/tier_5.svg';
-import Tier6DefaultIcon from '@/shared/assets/svg/tier/default/tier_6.svg';
-import Tier1SmallIcon from '@/shared/assets/svg/tier/sm/tier_1.svg';
-import Tier2SmallIcon from '@/shared/assets/svg/tier/sm/tier_2.svg';
-import Tier3SmallIcon from '@/shared/assets/svg/tier/sm/tier_3.svg';
-import Tier4SmallIcon from '@/shared/assets/svg/tier/sm/tier_4.svg';
-import Tier5SmallIcon from '@/shared/assets/svg/tier/sm/tier_5.svg';
-import Tier6SmallIcon from '@/shared/assets/svg/tier/sm/tier_6.svg';
+import Tier1DefaultIcon from '@/shared/assets/svgs/tier/default/tier_1.svg';
+import Tier2DefaultIcon from '@/shared/assets/svgs/tier/default/tier_2.svg';
+import Tier3DefaultIcon from '@/shared/assets/svgs/tier/default/tier_3.svg';
+import Tier4DefaultIcon from '@/shared/assets/svgs/tier/default/tier_4.svg';
+import Tier5DefaultIcon from '@/shared/assets/svgs/tier/default/tier_5.svg';
+import Tier6DefaultIcon from '@/shared/assets/svgs/tier/default/tier_6.svg';
+import Tier1SmallIcon from '@/shared/assets/svgs/tier/sm/tier_1.svg';
+import Tier2SmallIcon from '@/shared/assets/svgs/tier/sm/tier_2.svg';
+import Tier3SmallIcon from '@/shared/assets/svgs/tier/sm/tier_3.svg';
+import Tier4SmallIcon from '@/shared/assets/svgs/tier/sm/tier_4.svg';
+import Tier5SmallIcon from '@/shared/assets/svgs/tier/sm/tier_5.svg';
+import Tier6SmallIcon from '@/shared/assets/svgs/tier/sm/tier_6.svg';
 
 interface SVGTierProps extends SVGAttributes<SVGElement> {
   size?: 'default' | 'sm';

@@ -17,5 +17,8 @@
   },
   "devDependencies": {
     "turbo": "latest"
+  },
+  "dependencies": {
+    "@radix-ui/react-alert-dialog": "^1.1.2"
   }
 }

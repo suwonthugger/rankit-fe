@@ -26,7 +26,7 @@ export const boardHeaderStyle = style({
 export const boardListStyle = style({
   display: 'flex',
   flexDirection: 'column',
-  overflow: 'auto',
+  overflowY: 'auto',
 });
 
 export const boardRowStyle = style({

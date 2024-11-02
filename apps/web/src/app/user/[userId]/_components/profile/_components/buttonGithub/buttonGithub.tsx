@@ -1,4 +1,4 @@
-import GithubIcon from '@/shared/assets/svg/github_btn.svg';
+import GithubIcon from '@/shared/assets/svgs/github_btn.svg';
 import { buttonStyle, paragraphGithubStyle } from './buttonGithub.css';
 
 const ButtonGithub = () => {

@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css';
-import { globalTheme } from '../../../../shared/styles/globalTheme.css';
+import { globalTheme } from '@/shared/styles/globalTheme.css';
 
 export const divStyle = style({
   width: '25.8rem',

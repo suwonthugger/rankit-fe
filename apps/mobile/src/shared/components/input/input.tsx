@@ -28,6 +28,7 @@ import {
 } from './input.css';
 
 interface InputProps extends InputHTMLAttributes<HTMLElement> {
+  onKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
   device?: 'desktop' | 'mobile';
   variant?: 'search' | 'default';
 }
@@ -41,7 +42,14 @@ const InputContext = createContext<InputContextProps | null>(null);
 
 const InputRoot = forwardRef<HTMLInputElement, InputProps>(
   (
-    { device = 'desktop', variant = 'default', className, children, ...props },
+    {
+      device = 'desktop',
+      variant = 'default',
+      className,
+      children,
+      onKeyDown,
+      ...props
+    },
     ref,
   ) => {
     const [menuVisible, setMenuVisible] = useState(false);
@@ -56,6 +64,16 @@ const InputRoot = forwardRef<HTMLInputElement, InputProps>(
 
     const handleFocus = () => {
       setMenuVisible(true);
+    };
+
+    const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+      if (e.key === 'Enter') {
+        handle메뉴닫기();
+      }
+
+      if (onKeyDown) {
+        onKeyDown(e);
+      }
     };
 
     useClickOutside(divRef, () => {
@@ -80,6 +98,7 @@ const InputRoot = forwardRef<HTMLInputElement, InputProps>(
             <input
               ref={ref}
               onFocus={handleFocus}
+              onKeyDown={handleKeyDown}
               {...props}
               className={inputStyle}
             />

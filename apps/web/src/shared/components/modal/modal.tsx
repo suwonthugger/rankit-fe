@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import ArrowBack from '@/shared/assets/svg/arrow_back.svg';
+import ArrowBack from '@/shared/assets/svgs/arrow_back.svg';
 import {
   modalStyle,
   contentStyle,

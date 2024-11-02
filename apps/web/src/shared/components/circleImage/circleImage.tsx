@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import EmptyProfileImage from '@/shared/assets/svg/profile.svg';
+import EmptyProfileImage from '@/shared/assets/svgs/profile.svg';
 import { divStyle, imageStyle } from './circleImage.css';
 
 interface CircleImageProps {

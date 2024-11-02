@@ -69,7 +69,7 @@ export const InputMenuStyle = styleVariants({
   desktop: {
     ...globalTheme.fonts.bodyReg16,
     position: 'absolute',
-    top: '7.2rem',
+    top: '100%',
     width: '57.6rem',
     height: '23.8rem',
     padding: '8px 0',
@@ -83,7 +83,7 @@ export const InputMenuStyle = styleVariants({
   mobile: {
     ...globalTheme.fonts.bodyReg16,
     position: 'absolute',
-    top: '6rem',
+    top: '100%',
     width: '35.1rem',
     height: '23.8rem',
     padding: '8px 0',
@@ -130,6 +130,7 @@ export const inputMenuItemStyle = styleVariants({
   },
 });
 
+// Note: 사용자 랭킹 보드 리스트 아이템 스타일 가져옴
 export const rankBoardRowStyle = style({
   display: 'flex',
   justifyContent: 'space-between',

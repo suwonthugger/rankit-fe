@@ -3,6 +3,7 @@
 import { useRef, useState, KeyboardEvent } from 'react';
 import Input from '@/shared/components/input/input';
 import RankBoard from '@/shared/components/rankBoard/rankBoard';
+import { useGetSchoolNames } from '@/shared/apis/auth/queries';
 import { useGetSchoolList } from '@/shared/apis/school/queries';
 import {
   boardStyle,
@@ -12,18 +13,35 @@ import {
   heading2Style,
   inputStyle,
   paragraphStyle,
+  InputMenuPlaceholderStyle,
 } from './schoolPage.css';
 
 const SchoolPage = () => {
-  const [searchedSchoolName, setSearchedSchoolName] = useState('');
-  const inputRef = useRef<HTMLInputElement>(null);
+  const [대학교검색키워드, set대학교검색키워드] = useState('');
+  const [선택된대학교, set선택된대학교] = useState('');
 
+  const { data: schoolNames } = useGetSchoolNames();
   const { data, isLoading, fetchNextPage, hasNextPage, isFetchingNextPage } =
-    useGetSchoolList({ searchedSchoolName });
+    useGetSchoolList({ searchedSchoolName: 선택된대학교 });
+
+  const filteredData = schoolNames?.filter((school: string) =>
+    school.includes(대학교검색키워드),
+  );
+
+  const handle대학교선택 = (school: string) => {
+    set선택된대학교(school);
+    set대학교검색키워드(school);
+  };
+
+  const handle대학교검색키워드변경 = (
+    e: React.ChangeEvent<HTMLInputElement>,
+  ) => {
+    set대학교검색키워드(e.target.value);
+  };
 
   const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
-      setSearchedSchoolName(inputRef.current?.value ?? '');
+      set선택된대학교(대학교검색키워드);
     }
   };
 
@@ -49,13 +67,27 @@ const SchoolPage = () => {
         </p>
 
         <Input
-          ref={inputRef}
+          value={대학교검색키워드}
+          onChange={handle대학교검색키워드변경}
+          onKeyDown={handleKeyDown}
           device="mobile"
           variant="search"
           placeholder="대학교 검색"
-          onKeyDown={handleKeyDown}
-          className={inputStyle}
-        />
+          className={inputStyle}>
+          <Input.List>
+            {filteredData?.length > 0 ? (
+              filteredData.map((school: string) => (
+                <Input.MenuItem
+                  key={school}
+                  onClick={() => handle대학교선택(school)}>
+                  {school}
+                </Input.MenuItem>
+              ))
+            ) : (
+              <p className={InputMenuPlaceholderStyle}>검색 결과가 없습니다.</p>
+            )}
+          </Input.List>
+        </Input>
         <RankBoard
           device="mobile"
           className={boardStyle}

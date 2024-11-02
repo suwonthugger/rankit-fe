@@ -1,4 +1,7 @@
 export const getAuthHeader = () => {
-  const token = localStorage.getItem('accessToken');
-  return token;
+  if (typeof window !== 'undefined') {
+    const token = localStorage.getItem('accessToken');
+    return token;
+  }
+  return null;
 };

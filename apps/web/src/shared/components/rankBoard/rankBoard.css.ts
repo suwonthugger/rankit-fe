@@ -59,7 +59,7 @@ export const rankBoardHeaderStyle = styleVariants({
 export const rankBoardListStyle = style({
   display: 'flex',
   flexDirection: 'column',
-  overflow: 'auto',
+  overflowY: 'auto',
   height: '100%',
 });
 

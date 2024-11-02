@@ -6,9 +6,9 @@ import { useRef, useState } from 'react';
 import Button from '@/shared/components/button/button';
 import Input from '@/shared/components/input/input';
 import { useGetUserList } from '@/shared/apis/main/queries';
-import ArrowDownIcon from '@/shared/assets/svg/arrow_down.svg';
-import GraduationCapIcon from '@/shared/assets/svg/graduationCap.svg';
-import MapIcon from '@/shared/assets/svg/map.svg';
+import ArrowDownIcon from '@/shared/assets/svgs/arrow_down.svg';
+import GraduationCapIcon from '@/shared/assets/svgs/graduationCap.svg';
+import MapIcon from '@/shared/assets/svgs/map.svg';
 import RankBoardWithTier from './_components/RankBoardWithTier/RankBoardWithTier';
 import {
   bottomDivStyle,
@@ -83,6 +83,7 @@ export default function MainPage() {
                 {filteredData?.length > 0 ? (
                   filteredData.map((user) => (
                     <Input.UserItem
+                      key={user.username}
                       userRank={user.userRank}
                       userName={user.username}
                       profileImg={user.profileImg}

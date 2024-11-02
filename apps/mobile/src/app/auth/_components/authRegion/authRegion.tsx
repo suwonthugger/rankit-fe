@@ -37,7 +37,6 @@ const AuthRegion = ({ handleNextStep, 대학교 }: AuthRegionProps) => {
     set지역검색키워드(region);
   };
 
-  console.log(대학교, 지역검색키워드);
   const handle회원가입 = () => {
     mutate(
       { univName: 대학교, regionName: 지역검색키워드 },

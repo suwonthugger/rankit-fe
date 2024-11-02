@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useGetUserInfo } from '@/shared/apis/auth/queries';
-import Logo from '@/shared/assets/svg/logo_sm.svg';
+import Logo from '@/shared/assets/svgs/logo_sm.svg';
 import CircleImage from '../../circleImage/circleImage';
 import { contentStyle, headerStyle, navStyle } from './header.css';
 

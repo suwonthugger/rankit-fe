@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import Button from '@/shared/components/button/button';
 import Input from '@/shared/components/input/input';
 import RankBoardWithTier from './_components/RankBoardWithTier/RankBoardWithTier';
@@ -26,8 +27,13 @@ const MainPage = () => {
         </h1>
 
         <div className={buttonDivStyle}>
-          <Button>학교순위</Button>
-          <Button>지역순위</Button>
+          <Link href="/school">
+            <Button>학교순위</Button>
+          </Link>
+
+          <Link href="/region">
+            <Button>지역순위</Button>
+          </Link>
         </div>
 
         <Input

@@ -6,8 +6,8 @@ import AuthGithub from './_components/authGithub/authGithub';
 import AuthRedirect from './_components/authRedirect/authRedirect';
 import AuthRegion from './_components/authRegion/authRegion';
 import AuthSchool from './_components/authSchool/authSchool';
+import { useFunnel } from './_hooks/useFunnel';
 import { divStyle } from './authPage.css';
-import { useFunnel } from './hooks/useFunnel';
 
 const AuthPage = () => {
   const { Funnel, Step, setStep } = useFunnel();

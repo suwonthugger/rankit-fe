@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import useClickOutside from '@/shared/hooks/useClickOutside';
 import { getAuthHeader } from '@/shared/utils/auth';
 import CloseIcon from '@/shared/assets/svgs/close_icon.svg';
@@ -18,6 +18,7 @@ import {
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const handleToggleMenu = () => setIsMenuOpen((prev) => !prev);
   const handleMenuClose = () => setIsMenuOpen(false);
 
@@ -25,7 +26,10 @@ const Header = () => {
 
   useClickOutside(menuRef, handleMenuClose);
 
-  const token = !!getAuthHeader();
+  //Note: hydration issue로 useEffect 사용
+  useEffect(() => {
+    setIsLoggedIn(!!getAuthHeader());
+  }, []);
 
   return (
     <header className={headerStyle}>
@@ -35,7 +39,7 @@ const Header = () => {
         </Link>
 
         <div className={topRightDivStyle}>
-          {token ? (
+          {isLoggedIn ? (
             <button className={buttonStyle['secondary']}>내정보</button>
           ) : (
             <Link href="/auth?step=github">

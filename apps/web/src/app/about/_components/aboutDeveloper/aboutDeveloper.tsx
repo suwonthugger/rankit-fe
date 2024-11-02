@@ -1,10 +1,10 @@
-import Image from 'next/image';
-import Tier1 from '@/shared/assets/svg/tier_img/tier1.svg';
-import Tier2 from '@/shared/assets/svg/tier_img/tier2.svg';
-import Tier3 from '@/shared/assets/svg/tier_img/tier3.svg';
-import Tier4 from '@/shared/assets/svg/tier_img/tier4.svg';
-import Tier5 from '@/shared/assets/svg/tier_img/tier5.svg';
-import Tier6 from '@/shared/assets/svg/tier_img/tier6.svg';
+import Image, { StaticImageData } from 'next/image';
+import Tier1 from '@/shared/assets/svgs/tier_img/tier1.svg';
+import Tier2 from '@/shared/assets/svgs/tier_img/tier2.svg';
+import Tier3 from '@/shared/assets/svgs/tier_img/tier3.svg';
+import Tier4 from '@/shared/assets/svgs/tier_img/tier4.svg';
+import Tier5 from '@/shared/assets/svgs/tier_img/tier5.svg';
+import Tier6 from '@/shared/assets/svgs/tier_img/tier6.svg';
 import {
   divStyle,
   divMainContentStyle,
@@ -31,7 +31,7 @@ const AboutDeveloper = ({
   userComment: string;
   userTier: number; // 1부터 6까지의 숫자
   userGithub: string;
-  userImage: string;
+  userImage: StaticImageData;
 }) => {
   // 티어에 따른 컴포넌트 선택
   const TierComponent =

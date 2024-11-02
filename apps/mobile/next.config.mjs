@@ -35,8 +35,13 @@ const nextConfig = {
         port: '',
         pathname: '/**', // ghchart.rshah.org에서 모든 경로 허용
       },
+      {
+        protocol: 'https',
+        hostname: 'example.com',
+        port: '',
+        pathname: '/**',
+      },
     ],
-    domains: ['github.com'], // 이미지를 가져올 수 있는 도메인을 추가 - 수정필요
   },
 };
 
