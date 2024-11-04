@@ -45,11 +45,9 @@ export const bottomDivStyle = style({
 });
 
 export const skipButtonStyle = style({
-  ...globalTheme.fonts.mobileDetailReg14,
   position: 'absolute',
-  top: '1.1rem',
+  top: '0.8rem',
   right: 0,
-  color: globalTheme.colors.blue_33,
 });
 
 export const InputMenuPlaceholderStyle = style({

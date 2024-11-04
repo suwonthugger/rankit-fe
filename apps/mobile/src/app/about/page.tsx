@@ -150,7 +150,6 @@ const AboutPage = () => {
               userTier={1}
               userName="김효준"
               userComment="자유롭게 살고 싶어요."
-              userGithub="https://github.com/khyojun"
               userImage={hyojun}
             />
             <AboutDeveloper
@@ -158,7 +157,6 @@ const AboutPage = () => {
               userTier={2}
               userName="이승준"
               userComment="맥북 쓰고 싶어요."
-              userGithub="https://github.com/leesj000603"
               userImage={seungjun}
             />
           </div>
@@ -168,7 +166,6 @@ const AboutPage = () => {
               userTier={3}
               userName="서대원"
               userComment="힙합 is my life."
-              userGithub="https://github.com/suwonthugger"
               userImage={daewon}
             />
             <AboutDeveloper
@@ -176,7 +173,6 @@ const AboutPage = () => {
               userTier={4}
               userName="박우석"
               userComment="아직도 맥북을 안"
-              userGithub="https://github.com/jamooooong"
               userImage={wooseok}
             />
           </div>

@@ -31,11 +31,7 @@ const SchoolPage = () => {
         </h2>
 
         <p className={paragraphStyle}>
-          지역명을 눌러서
-          <br />
-          지역내 유저들의
-          <br />
-          순위를 볼 수 있어요.
+          지역명을 눌러서 지역내 유저들의 순위를 볼 수 있어요.
         </p>
 
         <Input

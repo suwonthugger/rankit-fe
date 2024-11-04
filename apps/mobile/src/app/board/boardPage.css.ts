@@ -1,5 +1,5 @@
-import { globalTheme } from '@/shared/styles/globalTheme.css';
 import { style } from '@vanilla-extract/css';
+import { globalTheme } from '@/shared/styles/globalTheme.css';
 
 export const heading2Style = style({
   ...globalTheme.fonts.mobileTitleBold28,
@@ -25,6 +25,10 @@ export const container = style([
     width: '100%',
   },
 ]);
+export const heading1Style = style({
+  ...globalTheme.fonts.mobileTitleSemiBold20,
+  color: globalTheme.colors.blue_main,
+});
 
 export const divStyle = style({
   display: 'flex',

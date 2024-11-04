@@ -24,6 +24,7 @@ const fontSizes = {
   mobileBodyReg16: '1.6rem',
   mobileDetailSemiBold14: '1.4rem',
   mobileDetailReg14: '1.4rem',
+  mobileDetailMed10: '1rem',
 };
 
 const fontWeights = {
@@ -150,6 +151,11 @@ export const globalTheme = createGlobalTheme(':root', {
     mobileDetailReg14: {
       fontSize: fontSizes.mobileDetailReg14,
       fontWeight: fontWeights.regular,
+      lineHeight: lineHeights.small,
+    },
+    mobileDetailMed10: {
+      fontSize: fontSizes.mobileDetailMed10,
+      fontWeight: fontWeights.medium,
       lineHeight: lineHeights.small,
     },
   },

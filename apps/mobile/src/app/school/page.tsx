@@ -59,11 +59,7 @@ const SchoolPage = () => {
         </h2>
 
         <p className={paragraphStyle}>
-          학교명을 눌러서
-          <br />
-          교내 유저들의
-          <br />
-          순위를 볼 수 있어요.
+          학교명을 눌러서 교내 유저들의 순위를 볼 수 있어요.
         </p>
 
         <Input

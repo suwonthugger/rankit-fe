@@ -52,7 +52,7 @@ export const userNameStyle = style({
 });
 
 export const userCommentStyle = style({
-  ...globalTheme.fonts.mobileDetailReg14,
+  ...globalTheme.fonts.mobileDetailMed10,
   color: globalTheme.colors.blue_66,
 });
 

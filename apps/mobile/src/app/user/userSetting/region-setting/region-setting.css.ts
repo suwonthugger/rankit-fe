@@ -1,60 +1,58 @@
 import { style } from '@vanilla-extract/css';
 import { globalTheme } from '@/shared/styles/globalTheme.css';
 
-export const flexColumnCenter = style({
+export const container = style({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
+  position: 'relative',
 });
 
-export const container = style([
-  flexColumnCenter,
-  {
-    width: '100%',
-  },
-]);
-
-export const divStyle = style({
-  width: '39.3rem',
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  alignContent: 'center',
-  paddingTop: '4rem',
-  paddingBottom: '4rem',
-  paddingLeft: '2.1rem',
-  paddingRight: '2.1rem',
-});
-
-export const headingStyle = style({
+export const topDivStyle = style({
   ...globalTheme.fonts.mobileTitleBold28,
-  color: globalTheme.colors.gray_19,
-  textAlign: 'center',
-  flex: 1,
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
 });
 
 export const topDivIconStyle = style({
-  display: 'flex',
-  flexDirection: 'row',
-  alignItems: 'center',
-  alignContent: 'center',
-  width: '100%',
-  marginBottom: '1.6rem',
+  position: 'absolute',
+  left: 0,
 });
 
-export const sectionStyle = style({
+export const middleDivStyle = style({
   display: 'flex',
   flexDirection: 'column',
-  width: '100%',
-  marginTop: '2.4rem',
-  background: 'white',
-  justifyContent: 'column',
   alignItems: 'center',
-  alignContent: 'center',
+  marginTop: '4rem',
   gap: '1.6rem',
 });
 
-export const middleDivParagraphStyle = style({
+export const paragraphStyle = style({
   ...globalTheme.fonts.mobileDetailReg14,
-  marginBottom: '0.8rem',
+  width: '32.3rem',
+  textAlign: 'center',
+});
+
+export const bottomDivStyle = style({
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  gap: '2.4rem',
+  marginTop: '2.4rem',
+  position: 'relative',
+  width: '100%',
+});
+
+export const skipButtonStyle = style({
+  position: 'absolute',
+  top: '0.8rem',
+  right: 0,
+});
+
+export const InputMenuPlaceholderStyle = style({
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  height: '100%',
 });
