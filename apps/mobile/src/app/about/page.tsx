@@ -3,12 +3,12 @@ import hyojun from '@/shared/assets/images/rankit_developer_HJKIM.jpg';
 import seungjun from '@/shared/assets/images/rankit_developer_SJLEE.jpg';
 import wooseok from '@/shared/assets/images/rankit_developer_WSPARK.jpg';
 import ImsiImg from '@/shared/assets/svgs/imsiImg.svg';
-import Tier1 from '@/shared/assets/svgs/tier/sm/tier_1.svg';
-import Tier2 from '@/shared/assets/svgs/tier/sm/tier_2.svg';
-import Tier3 from '@/shared/assets/svgs/tier/sm/tier_3.svg';
-import Tier4 from '@/shared/assets/svgs/tier/sm/tier_4.svg';
-import Tier5 from '@/shared/assets/svgs/tier/sm/tier_5.svg';
-import Tier6 from '@/shared/assets/svgs/tier/sm/tier_6.svg';
+import Tier1 from '@/shared/assets/svgs/tier/default/tier_1.svg';
+import Tier2 from '@/shared/assets/svgs/tier/default/tier_2.svg';
+import Tier3 from '@/shared/assets/svgs/tier/default/tier_3.svg';
+import Tier4 from '@/shared/assets/svgs/tier/default/tier_4.svg';
+import Tier5 from '@/shared/assets/svgs/tier/default/tier_5.svg';
+import Tier6 from '@/shared/assets/svgs/tier/default/tier_6.svg';
 import AboutDeveloper from './_components/aboutDeveloper/aboutDeveloper';
 import {
   container,

@@ -4,7 +4,6 @@ import { buttonStyle, colorVariant, paragraphStyle } from './button.css';
 interface ButtonProps extends ButtonHTMLAttributes<HTMLElement> {
   variant?: 'primary' | 'secondary';
   size?: 'lg' | 'sm';
-  color?: 'primary' | 'secondary';
 }
 
 const Button = ({

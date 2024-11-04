@@ -7,7 +7,7 @@ const paragraphCommonStyle = style({
 
 export const paragraphStyle = styleVariants({
   lg: [paragraphCommonStyle, { height: '2.4rem' }],
-  sm: [paragraphCommonStyle, { height: '2rem' }],
+  sm: [{ height: '2rem' }],
 });
 
 export const commonButtonStyle = style({

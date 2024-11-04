@@ -50,7 +50,7 @@ const MainSetting = ({ userSchool, userRegion }: MainSettingProps) => {
                 소속학교 == {userSchool || '학교 없음'}
               </p>
               <Link href="/school-setting">
-                <Button>변경</Button>
+                <Button size="sm">변경</Button>
               </Link>
             </div>
             <p className={paragraphStyle2}>
@@ -63,7 +63,7 @@ const MainSetting = ({ userSchool, userRegion }: MainSettingProps) => {
                 소속지역 == {userRegion || '지역 없음'}
               </p>
               <Link href="/region-setting">
-                <Button>변경</Button>
+                <Button size="sm">변경</Button>
               </Link>
             </div>
             <p className={paragraphStyle2}>소속지역를 변경할 수 있습니다.</p>
