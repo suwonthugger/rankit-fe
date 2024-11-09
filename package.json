@@ -2,6 +2,9 @@
   "name": "rankit",
   "private": true,
   "packageManager": "pnpm@9.2.0",
+  "workspaces": [
+    "apps/*"
+  ],
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
