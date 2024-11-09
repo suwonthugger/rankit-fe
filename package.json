@@ -8,13 +8,6 @@
     "lint": "turbo run lint",
     "test": "turbo run test"
   },
-  "tasks": {
-    "build": {
-      "outputs": [
-        "dist/**"
-      ]
-    }
-  },
   "devDependencies": {
     "turbo": "latest"
   },
