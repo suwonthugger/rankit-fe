@@ -16,7 +16,7 @@ export namespace PostUnivValidate {
 export namespace PostAuthJoin {
   export interface Params {
     univName: string;
-    regionName: string;
+    region: string;
   }
 }
 

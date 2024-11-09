@@ -1,9 +1,11 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import Button from '@/shared/components/button/button';
 import Input from '@/shared/components/input/input';
 import { useGetRegionNames, usePostAuthJoin } from '@/shared/apis/auth/queries';
+import { usePutRegion } from '@/shared/apis/user/queries';
 import ArrowBackIcon from '@/shared/assets/svgs/arrow_back.svg';
 import {
   bottomDivStyle,
@@ -15,16 +17,13 @@ import {
   topDivStyle,
 } from './region-setting.css';
 
-interface RegionSettingProps {
-  handleNextStep: (step: string) => void;
-  대학교: string;
-}
+const RegionSetting = () => {
+  const router = useRouter();
 
-const RegionSetting = ({ handleNextStep, 대학교 }: RegionSettingProps) => {
   const [지역검색키워드, set지역검색키워드] = useState('');
 
   const { data } = useGetRegionNames();
-  const { mutate } = usePostAuthJoin();
+  const { mutate } = usePutRegion();
 
   const filteredData = data?.filter((region: string) =>
     region.includes(지역검색키워드),
@@ -39,18 +38,11 @@ const RegionSetting = ({ handleNextStep, 대학교 }: RegionSettingProps) => {
   };
 
   const handle지역변경 = () => {
-    mutate(
-      { univName: 대학교, regionName: 지역검색키워드 },
-      {
-        onSuccess: () => {
-          alert('변경되었습니다.');
-        },
-        onError: (error) => {
-          alert('지역 변경에 실패했습니다. 다시 시도해주세요.');
-          console.error(error);
-        },
+    mutate(지역검색키워드, {
+      onSuccess: () => {
+        router.back();
       },
-    );
+    });
   };
 
   return (

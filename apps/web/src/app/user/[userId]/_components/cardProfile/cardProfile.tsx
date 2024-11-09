@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import SVGTier from '../SVGTier/SVGTier';
+import { TierTypes } from '../profile/_types';
 import {
   containerStyle,
   contentDivStyle,
@@ -11,30 +12,30 @@ import {
 } from './cardProfile.css';
 
 interface CardProfileProps {
-  profileSrc?: string;
+  profileImg?: string;
   language: string;
-  tier: number;
-  userName: string;
-  school: string;
-  region: string;
+  grade: TierTypes;
+  username: string;
+  schoolName: string;
+  regionName: string;
 }
 
 const CardProfile = ({
-  profileSrc = 'https://avatars.githubusercontent.com/u/127329855?v=4',
+  profileImg = 'https://avatars.githubusercontent.com/u/127329855?v=4',
   language,
-  tier,
-  userName,
-  school,
-  region,
+  grade,
+  username,
+  schoolName,
+  regionName,
 }: CardProfileProps) => {
   return (
     <div className={containerStyle}>
       <div className={imageDivStyle}>
         <Image
-          src={profileSrc}
+          src={profileImg}
           width={460}
           height={460}
-          alt={`${userName} 프로필 이미지`}
+          alt={`${username} 프로필 이미지`}
           className={imageDivStyle}
         />
       </div>
@@ -43,13 +44,13 @@ const CardProfile = ({
         <p className={languageParagraphStyle}>{language}</p>
 
         <div className={titleDivStyle}>
-          <SVGTier size="sm" tier={tier} />
-          <h3>{userName}</h3>
+          <SVGTier size="sm" tier={grade} />
+          <h3>{username}</h3>
         </div>
 
         <div className={labelDivStyle}>
-          <span className={labelStyle}>{school}</span>
-          <span className={labelStyle}>{region}</span>
+          <span className={labelStyle}>{schoolName}</span>
+          <span className={labelStyle}>{regionName}</span>
         </div>
       </div>
     </div>

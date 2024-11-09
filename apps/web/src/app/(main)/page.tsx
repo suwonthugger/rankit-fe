@@ -1,6 +1,5 @@
 'use client';
 
-import { Flex, Spinner } from '@radix-ui/themes';
 import Link from 'next/link';
 import { useRef, useState } from 'react';
 import Button from '@/shared/components/button/button';
@@ -59,11 +58,11 @@ export default function MainPage() {
           </h1>
 
           <div className={buttonDivStyle}>
-            <Link href={'/school'}>
+            <Link href="/school">
               <Button Icon={<GraduationCapIcon />}>학교 순위</Button>
             </Link>
 
-            <Link href={'/region'}>
+            <Link href="/region">
               <Button Icon={<MapIcon />}>지역 순위</Button>
             </Link>
           </div>
@@ -82,13 +81,14 @@ export default function MainPage() {
               <Input.List>
                 {filteredData?.length > 0 ? (
                   filteredData.map((user) => (
-                    <Input.UserItem
-                      key={user.username}
-                      userRank={user.userRank}
-                      userName={user.username}
-                      profileImg={user.profileImg}
-                      userScore={user.userscore}
-                    />
+                    <Link key={user.username} href={`/user/${user.username}`}>
+                      <Input.UserItem
+                        userRank={user.userRank}
+                        userName={user.username}
+                        profileImg={user.profileImg}
+                        userScore={user.userscore}
+                      />
+                    </Link>
                   ))
                 ) : (
                   <p className={InputListPlaceholderStyle}>

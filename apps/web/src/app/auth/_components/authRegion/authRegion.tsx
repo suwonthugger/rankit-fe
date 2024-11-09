@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from 'react';
 import CustomAlertDialog from '@/shared/components/alertDialog/AlertDialog';
 import Button from '@/shared/components/button/button';
@@ -38,10 +40,10 @@ const AuthRegion = ({ handleNextStep, 대학교 }: AuthRegionProps) => {
     set지역검색키워드(region);
   };
 
-  console.log(대학교, 지역검색키워드);
   const handle회원가입 = () => {
+    console.log(대학교, 지역검색키워드);
     mutate(
-      { univName: 대학교, regionName: 지역검색키워드 },
+      { univName: 대학교, region: 지역검색키워드 },
       {
         onSuccess: () => {
           handleNextStep('completion');

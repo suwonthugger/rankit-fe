@@ -1,3 +1,5 @@
+'use client';
+
 import Button from '@/shared/components/button/button';
 import Logo from '@/shared/assets/svgs/logo_lg.svg';
 import {

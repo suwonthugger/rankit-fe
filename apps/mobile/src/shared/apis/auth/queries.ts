@@ -10,7 +10,7 @@ import {
 } from './axios';
 import { PostAuthJoin, PostUnivCertificate, PostUnivValidate } from './types';
 
-const token = getAuthHeader();
+const token = !!getAuthHeader();
 
 export const useGetSchoolNames = () => {
   return useQuery({ queryKey: ['schoolNames'], queryFn: getSchoolNames });
@@ -36,8 +36,8 @@ export const usePostUnivValidate = () => {
 
 export const usePostAuthJoin = () => {
   return useMutation({
-    mutationFn: ({ univName, regionName }: PostAuthJoin.Params) =>
-      postAuthJoin({ univName, regionName }),
+    mutationFn: ({ univName, region }: PostAuthJoin.Params) =>
+      postAuthJoin({ univName, region }),
   });
 };
 
@@ -45,6 +45,6 @@ export const useGetUserInfo = () => {
   return useQuery({
     queryKey: ['userInfo', token],
     queryFn: getUserInfo,
-    enabled: !!token,
+    enabled: token,
   });
 };

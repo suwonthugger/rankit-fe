@@ -1,8 +1,13 @@
 'use client';
 
 import Link from 'next/link';
+import { useParams, useRouter } from 'next/navigation';
+import { useQueryClient } from '@tanstack/react-query';
 import CustomAlertDialog from '@/shared/components/alertDialog/AlertDialog';
 import Button from '@/shared/components/button/button';
+import { useGetUserInfo } from '@/shared/apis/auth/queries';
+import { useDeleteWithdraw } from '@/shared/apis/user/queries';
+import { getAuthHeader } from '@/shared/utils/auth';
 import ArrowBackIcon from '@/shared/assets/svgs/arrow_back.svg';
 import {
   headingStyle,
@@ -14,42 +19,53 @@ import {
   container,
   divStyle,
   topDivIconStyle,
-  textBtnStyle,
 } from './main-setting.css';
 
-interface MainSettingProps {
-  userSchool: string | undefined;
-  userRegion: string | undefined;
-}
+const MainSetting = () => {
+  const router = useRouter();
 
-const MainSetting = ({ userSchool, userRegion }: MainSettingProps) => {
+  const queryClient = useQueryClient();
+
+  const username = useParams().userId as string;
+
+  const { data: authUserInfo } = useGetUserInfo();
+  const { mutate: 회원탈퇴함수 } = useDeleteWithdraw();
+
   const handleLogOut = () => {
-    console.log('로그아웃 확인 눌림');
-    // 확인 버튼을 눌렀을 때의 동작을 정의
+    queryClient.invalidateQueries({ queryKey: ['userInfo', getAuthHeader()] });
+    localStorage.removeItem('accessToken');
+    window.location.href = '/';
   };
+
   const handleDelAuth = () => {
-    console.log('탈퇴하기 확인 눌림');
-    // 확인 버튼을 눌렀을 때의 동작을 정의
+    회원탈퇴함수(undefined, {
+      onSuccess: () => {
+        window.location.href = '/';
+      },
+    });
   };
+
   return (
     <div className={container}>
       <div className={divStyle}>
         {/* heading */}
         <div className={topDivIconStyle}>
-          <button>
+          <button
+            onClick={() => {
+              router.back();
+            }}>
             <ArrowBackIcon />
           </button>
           <p className={headingStyle}>설정</p>
         </div>
 
-        {/* changeInfo */}
         <section className={sectionStyle}>
           <div className={subSectionStyle}>
             <div className={subDivBetweenStyle}>
               <p className={paragraphStyle1}>
-                소속학교 == {userSchool || '학교 없음'}
+                소속학교 == {authUserInfo?.univName || '학교 없음'}
               </p>
-              <Link href="/school-setting">
+              <Link href={`/user/${username}/school-setting`}>
                 <Button size="sm">변경</Button>
               </Link>
             </div>
@@ -60,9 +76,9 @@ const MainSetting = ({ userSchool, userRegion }: MainSettingProps) => {
           <div className={subSectionStyle}>
             <div className={subDivBetweenStyle}>
               <p className={paragraphStyle1}>
-                소속지역 == {userRegion || '지역 없음'}
+                소속지역 == {authUserInfo?.regionName || '지역 없음'}
               </p>
-              <Link href="/region-setting">
+              <Link href={`/user/${username}/region-setting`}>
                 <Button size="sm">변경</Button>
               </Link>
             </div>

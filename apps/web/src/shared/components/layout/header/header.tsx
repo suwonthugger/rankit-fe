@@ -9,6 +9,8 @@ import { contentStyle, headerStyle, navStyle } from './header.css';
 const Header = () => {
   const { data } = useGetUserInfo();
 
+  const profileLink = data ? `/user/${data.username}` : '/auth?step=github';
+
   return (
     <header className={headerStyle}>
       <div className={contentStyle}>
@@ -22,7 +24,9 @@ const Header = () => {
           <Link href="/about">about</Link>
         </nav>
 
-        <CircleImage src={data?.profileImg} />
+        <Link href={profileLink}>
+          <CircleImage src={data?.profileImg} />
+        </Link>
       </div>
     </header>
   );

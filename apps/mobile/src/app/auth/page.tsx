@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { Spinner } from '@radix-ui/themes';
+import { Suspense, useState } from 'react';
 import AuthCompletion from './_components/authCompletion/authCompletion';
 import AuthGithub from './_components/authGithub/authGithub';
 import AuthRedirect from './_components/authRedirect/authRedirect';
@@ -9,7 +10,7 @@ import AuthSchool from './_components/authSchool/authSchool';
 import { useFunnel } from './_hooks/useFunnel';
 import { container } from './authPage.css';
 
-const AuthPage = () => {
+const Auth = () => {
   const { Funnel, Step, setStep } = useFunnel();
 
   const [대학교, set대학교] = useState('');
@@ -41,6 +42,13 @@ const AuthPage = () => {
         </Funnel>
       }
     </div>
+  );
+};
+const AuthPage = () => {
+  return (
+    <Suspense fallback={<Spinner size={'3'} />}>
+      <Auth />
+    </Suspense>
   );
 };
 

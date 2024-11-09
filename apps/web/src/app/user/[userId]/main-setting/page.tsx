@@ -5,10 +5,7 @@ import { ModalContentMainSetting } from '../../../../shared/components/modalCont
 const page = () => {
   return (
     <Modal title="설정">
-      <ModalContentMainSetting
-        userSchool="userSchool"
-        userRegion="userRegion"
-      />
+      <ModalContentMainSetting />
     </Modal>
   );
 };

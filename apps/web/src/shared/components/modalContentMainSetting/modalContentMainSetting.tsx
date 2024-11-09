@@ -1,8 +1,13 @@
 'use client';
 
 import Link from 'next/link';
+import { useParams } from 'next/navigation';
+import { useQueryClient } from '@tanstack/react-query';
 import CustomAlertDialog from '@/shared/components/alertDialog/AlertDialog';
 import Button from '@/shared/components/button/button';
+import { useGetUserInfo } from '@/shared/apis/auth/queries';
+import { useDeleteWithdraw } from '@/shared/apis/user/queries';
+import { getAuthHeader } from '@/shared/utils/auth';
 import {
   headingStyle,
   sectionStyle,
@@ -10,35 +15,42 @@ import {
   paragraphStyle2,
 } from './modalContentMainSetting.css';
 
-export function ModalContentMainSetting({
-  userSchool,
-  userRegion,
-}: {
-  userSchool: string | undefined;
-  userRegion: string;
-}) {
+export function ModalContentMainSetting() {
+  const queryClient = useQueryClient();
+
+  const username = useParams().userId as string;
+
+  const { data: authUserInfo } = useGetUserInfo();
+  const { mutate: 회원탈퇴함수 } = useDeleteWithdraw();
+
   const handleLogOut = () => {
-    console.log('로그아웃 확인 눌림');
-    // 확인 버튼을 눌렀을 때의 동작을 정의
+    queryClient.invalidateQueries({ queryKey: ['userInfo', getAuthHeader()] });
+    localStorage.removeItem('accessToken');
+    window.location.href = '/';
   };
+
   const handleDelAuth = () => {
-    console.log('탈퇴하기 확인 눌림');
-    // 확인 버튼을 눌렀을 때의 동작을 정의
+    회원탈퇴함수(undefined, {
+      onSuccess: () => {
+        window.location.href = '/';
+      },
+    });
   };
+
   return (
     <>
       <p className={headingStyle}>정보 변경</p>
       <div className={sectionStyle}>
         <div>
           <p className={paragraphStyle1}>
-            소속학교 == {userSchool || '학교 없음'}
+            소속학교 == {authUserInfo?.univName || '학교 없음'}
           </p>
           <p className={paragraphStyle2}>
             변경 버튼을 눌러 재인증을 통해 소속학교를 변경할 수 있습니다.
           </p>
         </div>
         <div>
-          <Link href={`/user/${1}/school-setting`}>
+          <Link href={`/user/${username}/school-setting`}>
             <Button>변경하기</Button>
           </Link>
         </div>
@@ -46,14 +58,14 @@ export function ModalContentMainSetting({
       <div className={sectionStyle}>
         <div>
           <p className={paragraphStyle1}>
-            소속지역 == {userRegion || '지역 없음'}
+            소속지역 == {authUserInfo?.regionName || '지역 없음'}
           </p>
           <p className={paragraphStyle2}>
             변경 버튼을 눌러 소속지역를 변경할 수 있습니다.
           </p>
         </div>
         <div>
-          <Link href={`/user/${1}/region-setting`}>
+          <Link href={`/user/${username}/region-setting`}>
             <Button>변경하기</Button>
           </Link>
         </div>

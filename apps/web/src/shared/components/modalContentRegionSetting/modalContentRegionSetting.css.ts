@@ -17,3 +17,10 @@ export const DivParagraphStyle = style({
   alignItems: 'center',
   gap: '1.2rem',
 });
+
+export const InputMenuPlaceholderStyle = style({
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  height: '100%',
+});

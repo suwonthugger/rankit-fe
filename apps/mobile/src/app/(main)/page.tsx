@@ -1,8 +1,10 @@
 'use client';
 
 import Link from 'next/link';
+import { useRef, useState } from 'react';
 import Button from '@/shared/components/button/button';
 import Input from '@/shared/components/input/input';
+import { useGetUserList } from '@/shared/apis/main/queries';
 import RankBoardWithTier from './_components/RankBoardWithTier/RankBoardWithTier';
 import {
   bottomDivStyle,
@@ -17,6 +19,26 @@ import {
 } from './main.css';
 
 const MainPage = () => {
+  const [유저검색키워드, set유저검색키워드] = useState('');
+
+  const { data } = useGetUserList({ searchedname: 유저검색키워드 });
+
+  const filteredData =
+    data?.userList?.filter((user) => user.username.includes(유저검색키워드)) ||
+    [];
+
+  const bottomDivRef = useRef<HTMLDivElement | null>(null);
+
+  const handle유저검색키워드변경 = (e: React.ChangeEvent<HTMLInputElement>) => {
+    set유저검색키워드(e.target.value);
+  };
+
+  const handleScrollToButtons = () => {
+    if (bottomDivRef.current) {
+      bottomDivRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className={container}>
       <div className={topDivStyle}>

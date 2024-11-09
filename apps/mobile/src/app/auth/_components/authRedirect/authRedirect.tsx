@@ -2,7 +2,7 @@
 
 import { Spinner } from '@radix-ui/themes';
 import { useSearchParams, useRouter } from 'next/navigation';
-import React, { useEffect } from 'react';
+import React, { Suspense, useEffect } from 'react';
 import { useQueryClient } from '@tanstack/react-query';
 import { container } from './authRedirect.css';
 
@@ -28,19 +28,21 @@ const AuthRedirect = ({ handleNextStep }: AuthRedirectProps) => {
       console.error('토큰이 제공되지 않았습니다.');
       return;
     }
-    console.log(isRegistered);
+
     if (isRegistered) {
       queryClient.invalidateQueries({ queryKey: ['userInfo'] });
-      router.replace('/', { scroll: false });
+      window.location.href = '/';
     } else {
       handleNextStep('school');
     }
   }, []);
 
   return (
-    <div className={container}>
-      <Spinner size="3" />
-    </div>
+    <Suspense fallback={<Spinner size="3" />}>
+      <div className={container}>
+        <Spinner size="3" />
+      </div>
+    </Suspense>
   );
 };
 

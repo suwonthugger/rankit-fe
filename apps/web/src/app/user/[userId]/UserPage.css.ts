@@ -98,3 +98,19 @@ export const topSectionStyle = style({
   display: 'flex',
   marginBottom: '8.8rem',
 });
+
+export const spinnerTopDiveStyle = style({
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  width: '100%',
+  height: '46.2rem',
+});
+
+export const spinnerMiddleDivStyle = style({
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  width: '100%',
+  height: '33.9rem',
+});

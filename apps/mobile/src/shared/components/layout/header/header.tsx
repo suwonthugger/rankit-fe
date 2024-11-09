@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import useClickOutside from '@/shared/hooks/useClickOutside';
+import { useGetUserInfo } from '@/shared/apis/auth/queries';
 import { getAuthHeader } from '@/shared/utils/auth';
 import CloseIcon from '@/shared/assets/svgs/close_icon.svg';
 import HamburgerIcon from '@/shared/assets/svgs/menu_icon.svg';
@@ -22,6 +23,10 @@ const Header = () => {
   const handleToggleMenu = () => setIsMenuOpen((prev) => !prev);
   const handleMenuClose = () => setIsMenuOpen(false);
 
+  const { data } = useGetUserInfo();
+
+  const profileLink = data ? `/user/${data.username}` : '/auth?step=github';
+
   const menuRef = useRef(null);
 
   useClickOutside(menuRef, handleMenuClose);
@@ -39,13 +44,12 @@ const Header = () => {
         </Link>
 
         <div className={topRightDivStyle}>
-          {isLoggedIn ? (
-            <button className={buttonStyle['secondary']}>내정보</button>
-          ) : (
-            <Link href="/auth?step=github">
-              <button className={buttonStyle['primary']}>로그인</button>
-            </Link>
-          )}
+          <Link href={profileLink}>
+            <button
+              className={buttonStyle[isLoggedIn ? 'secondary' : 'primary']}>
+              {isLoggedIn ? '내 정보' : '로그인'}
+            </button>
+          </Link>
 
           <button onClick={handleToggleMenu}>
             {isMenuOpen ? <CloseIcon /> : <HamburgerIcon />}

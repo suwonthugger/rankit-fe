@@ -19,6 +19,8 @@ interface CustomAlertDialogProps {
   cancelText: string;
   confirmText: string;
   triggerText: string;
+  isOpen?: boolean;
+  onTrigger?: () => void; // 트리거 버튼을 눌렀을 때 실행할 함수
   onConfirm?: () => void; // 확인 버튼을 눌렀을 때 실행할 함수
 }
 
@@ -31,11 +33,13 @@ const CustomAlertDialog = ({
   cancelText,
   confirmText,
   triggerText,
+  isOpen,
+  onTrigger,
   onConfirm,
 }: CustomAlertDialogProps) => {
   return (
-    <AlertDialog.Root>
-      <AlertDialog.Trigger className={buttonStyle[variant]}>
+    <AlertDialog.Root open={isOpen}>
+      <AlertDialog.Trigger className={buttonStyle[variant]} onClick={onTrigger}>
         {triggerText}
       </AlertDialog.Trigger>
 

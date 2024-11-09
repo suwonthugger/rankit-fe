@@ -62,3 +62,10 @@ export const textCenter = style({
 export const paragraphStyle = style({
   ...globalTheme.fonts.mobileBodyMed16,
 });
+
+export const InputListPlaceholderStyle = style({
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  height: '100%',
+});

@@ -36,8 +36,8 @@ export const usePostUnivValidate = () => {
 
 export const usePostAuthJoin = () => {
   return useMutation({
-    mutationFn: ({ univName, regionName }: PostAuthJoin.Params) =>
-      postAuthJoin({ univName, regionName }),
+    mutationFn: ({ univName, region }: PostAuthJoin.Params) =>
+      postAuthJoin({ univName, region }),
   });
 };
 

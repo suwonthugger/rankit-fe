@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from 'react';
 import CustomAlertDialog from '@/shared/components/alertDialog/AlertDialog';
 import Button from '@/shared/components/button/button';

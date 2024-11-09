@@ -52,3 +52,10 @@ export const rightDivStyle = style({
   flexDirection: 'column',
   gap: '2.4rem',
 });
+
+export const InputMenuPlaceholderStyle = style({
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  height: '100%',
+});

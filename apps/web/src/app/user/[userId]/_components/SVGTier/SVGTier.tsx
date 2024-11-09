@@ -11,31 +11,36 @@ import Tier3SmallIcon from '@/shared/assets/svgs/tier/sm/tier_3.svg';
 import Tier4SmallIcon from '@/shared/assets/svgs/tier/sm/tier_4.svg';
 import Tier5SmallIcon from '@/shared/assets/svgs/tier/sm/tier_5.svg';
 import Tier6SmallIcon from '@/shared/assets/svgs/tier/sm/tier_6.svg';
+import { TierTypes } from '../profile/_types';
 
 interface SVGTierProps extends SVGAttributes<SVGElement> {
   size?: 'default' | 'sm';
-  tier?: number;
+  tier?: TierTypes;
 }
 
-const defaultComponent: Record<number, FC<SVGAttributes<SVGElement>>> = {
-  1: Tier1DefaultIcon,
-  2: Tier2DefaultIcon,
-  3: Tier3DefaultIcon,
-  4: Tier4DefaultIcon,
-  5: Tier5DefaultIcon,
-  6: Tier6DefaultIcon,
+const defaultComponent: Record<TierTypes, FC<SVGAttributes<SVGElement>>> = {
+  YELLOW: Tier1DefaultIcon,
+  GREEN: Tier2DefaultIcon,
+  BLUE: Tier3DefaultIcon,
+  RED: Tier4DefaultIcon,
+  GREY: Tier5DefaultIcon,
+  PURPLE: Tier6DefaultIcon,
 };
 
-const smComponent: Record<number, FC<SVGAttributes<SVGElement>>> = {
-  1: Tier1SmallIcon,
-  2: Tier2SmallIcon,
-  3: Tier3SmallIcon,
-  4: Tier4SmallIcon,
-  5: Tier5SmallIcon,
-  6: Tier6SmallIcon,
+const smComponent: Record<TierTypes, FC<SVGAttributes<SVGElement>>> = {
+  YELLOW: Tier1SmallIcon,
+  GREEN: Tier2SmallIcon,
+  BLUE: Tier3SmallIcon,
+  RED: Tier4SmallIcon,
+  GREY: Tier5SmallIcon,
+  PURPLE: Tier6SmallIcon,
 };
 
-const SVGTier = ({ size = 'default', tier = 1, ...props }: SVGTierProps) => {
+const SVGTier = ({
+  size = 'default',
+  tier = 'YELLOW',
+  ...props
+}: SVGTierProps) => {
   const TierComponent =
     size === 'default' ? defaultComponent[tier] : smComponent[tier];
 

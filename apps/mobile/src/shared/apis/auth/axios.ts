@@ -43,11 +43,11 @@ export const postUnivValidate = async ({
 
 export const postAuthJoin = async ({
   univName,
-  regionName,
+  region,
 }: PostAuthJoin.Params) => {
   await authClient.post(AUTH_URL.POST_AUTH_JOIN, {
     univName,
-    regionName,
+    region,
   });
 };
 

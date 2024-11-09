@@ -1,5 +1,6 @@
 import { assignInlineVars } from '@vanilla-extract/dynamic';
 import SVGTier from '../SVGTier/SVGTier';
+import { TierTypes } from '../profile/types';
 import {
   outsideStyle,
   insideStyle,
@@ -13,8 +14,8 @@ import {
 
 interface ProgressBarProps {
   width: number;
-  currentTier: number;
-  nextTier: number;
+  currentTier?: TierTypes;
+  nextTier?: TierTypes;
 }
 
 const ProgressBar = ({ width, currentTier, nextTier }: ProgressBarProps) => {
@@ -33,13 +34,13 @@ const ProgressBar = ({ width, currentTier, nextTier }: ProgressBarProps) => {
       <SVGTier size="default" tier={nextTier} className={nextTierStyle} />
 
       <div className={currentTierDivStyle}>
-        <p>{`level ${1}`}</p>
+        <p>{`level ${currentTier}`}</p>
         <span className={spanStyle}>5,000</span>
       </div>
 
       <div className={nextTierDivStyle}>
-        <p>{`level ${2} 까지`}</p>
-        <p>-3,000</p>
+        <p>{`level ${nextTier} 까지`}</p>
+        <p>3,000</p>
       </div>
     </div>
   );

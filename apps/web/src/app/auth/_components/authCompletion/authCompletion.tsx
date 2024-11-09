@@ -20,7 +20,7 @@ const AuthCompletion = () => {
 
   const handleHomeClick = () => {
     queryClient.invalidateQueries({ queryKey: ['userInfo'] });
-    router.push('/');
+    window.location.href = '/';
   };
 
   return (

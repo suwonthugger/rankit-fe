@@ -49,3 +49,10 @@ export const inputStyle = style({
 export const boardStyle = style({
   marginTop: '0.8rem',
 });
+
+export const InputMenuPlaceholderStyle = style({
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  height: '100%',
+});

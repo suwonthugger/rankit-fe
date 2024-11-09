@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import EmptyProfileImage from '@/shared/assets/svgs/profile.svg';
 import { divStyle, imageStyle } from './circleImage.css';
 
@@ -20,9 +19,7 @@ const CircleImage = ({ src, size = 'sm' }: CircleImageProps) => {
           className={imageStyle}
         />
       ) : (
-        <Link href="/auth?step=github">
-          <EmptyProfileImage />
-        </Link>
+        <EmptyProfileImage />
       )}
     </div>
   );

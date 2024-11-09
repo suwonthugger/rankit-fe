@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useState } from 'react';
 import RankBoard from '@/shared/components/rankBoard/rankBoard';
 import { useGetUserGradeList } from '@/shared/apis/main/queries';
@@ -47,13 +48,14 @@ const RankBoardWithTier = () => {
         isLoading={isLoading}>
         {data?.pages.map((page) =>
           page.userList.map((user) => (
-            <RankBoard.ListItem
-              key={user.username}
-              rank={user.userRank}
-              name={user.username}
-              score={user.userscore}
-              profileImg={user.profileImg}
-            />
+            <Link key={user.username} href={`/user/${user.username}`}>
+              <RankBoard.ListItem
+                rank={user.userRank}
+                name={user.username}
+                score={user.userscore}
+                profileImg={user.profileImg}
+              />
+            </Link>
           )),
         )}
       </RankBoard>

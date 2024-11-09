@@ -17,40 +17,45 @@ import Tier3SmallIcon from '@/shared/assets/svgs/tier/sm/tier_3.svg';
 import Tier4SmallIcon from '@/shared/assets/svgs/tier/sm/tier_4.svg';
 import Tier5SmallIcon from '@/shared/assets/svgs/tier/sm/tier_5.svg';
 import Tier6SmallIcon from '@/shared/assets/svgs/tier/sm/tier_6.svg';
+import { TierTypes } from '../profile/types';
 
 interface SVGTierProps extends SVGAttributes<SVGElement> {
   size?: 'default' | 'sm' | 'lg';
-  tier?: number;
+  tier?: TierTypes;
 }
 
-const defaultComponent: Record<number, FC<SVGAttributes<SVGElement>>> = {
-  1: Tier1DefaultIcon,
-  2: Tier2DefaultIcon,
-  3: Tier3DefaultIcon,
-  4: Tier4DefaultIcon,
-  5: Tier5DefaultIcon,
-  6: Tier6DefaultIcon,
+const defaultComponent: Record<TierTypes, FC<SVGAttributes<SVGElement>>> = {
+  YELLOW: Tier1DefaultIcon,
+  GREEN: Tier2DefaultIcon,
+  BLUE: Tier3DefaultIcon,
+  RED: Tier4DefaultIcon,
+  GREY: Tier5DefaultIcon,
+  PURPLE: Tier6DefaultIcon,
 };
 
-const lgComponent: Record<number, FC<SVGAttributes<SVGElement>>> = {
-  1: Tier1LargeIcon,
-  2: Tier2LargeIcon,
-  3: Tier3LargeIcon,
-  4: Tier4LargeIcon,
-  5: Tier5LargeIcon,
-  6: Tier6LargeIcon,
+const lgComponent: Record<TierTypes, FC<SVGAttributes<SVGElement>>> = {
+  YELLOW: Tier1LargeIcon,
+  GREEN: Tier2LargeIcon,
+  BLUE: Tier3LargeIcon,
+  RED: Tier4LargeIcon,
+  GREY: Tier5LargeIcon,
+  PURPLE: Tier6LargeIcon,
 };
 
-const smComponent: Record<number, FC<SVGAttributes<SVGElement>>> = {
-  1: Tier1SmallIcon,
-  2: Tier2SmallIcon,
-  3: Tier3SmallIcon,
-  4: Tier4SmallIcon,
-  5: Tier5SmallIcon,
-  6: Tier6SmallIcon,
+const smComponent: Record<TierTypes, FC<SVGAttributes<SVGElement>>> = {
+  YELLOW: Tier1SmallIcon,
+  GREEN: Tier2SmallIcon,
+  BLUE: Tier3SmallIcon,
+  RED: Tier4SmallIcon,
+  GREY: Tier5SmallIcon,
+  PURPLE: Tier6SmallIcon,
 };
 
-const SVGTier = ({ size = 'default', tier = 1, ...props }: SVGTierProps) => {
+const SVGTier = ({
+  size = 'default',
+  tier = 'YELLOW',
+  ...props
+}: SVGTierProps) => {
   const TierComponent =
     size === 'default'
       ? defaultComponent[tier]
@@ -58,6 +63,9 @@ const SVGTier = ({ size = 'default', tier = 1, ...props }: SVGTierProps) => {
         ? lgComponent[tier]
         : smComponent[tier];
 
+  if (!TierComponent) {
+    return null;
+  }
   return <TierComponent {...props} />;
 };
 

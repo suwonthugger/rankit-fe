@@ -8,7 +8,7 @@ export const alertDialogOverlay = style({
   inset: 0,
 });
 
-const defaultAlertDialogContentStyle = {
+const defaultAlertDialogContentStyle = style({
   borderRadius: '0.8rem',
   boxShadow:
     '0px 10px 38px rgba(0, 0, 0, 0.35), 0px 10px 20px rgba(0, 0, 0, 0.2)',
@@ -20,7 +20,7 @@ const defaultAlertDialogContentStyle = {
   width: '28.8rem',
   //maxWidth: '78rem',
   zIndex: 1000,
-};
+});
 
 export const alertDialogContent = styleVariants({
   blue: [

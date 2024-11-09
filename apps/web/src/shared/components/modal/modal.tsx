@@ -1,6 +1,6 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import ArrowBack from '@/shared/assets/svgs/arrow_back.svg';
 import {
   modalStyle,
@@ -28,11 +28,12 @@ export function Modal({
     <div className={modalStyle} onClick={handleOutsideClick}>
       <div className={contentStyle}>
         <div className={divHeaderStyle}>
-          <ArrowBack
+          <button
             onClick={() => {
               router.back();
-            }}
-          />
+            }}>
+            <ArrowBack />
+          </button>
           <h1 className={headerStyle}>{title}</h1>
         </div>
         <div>{children}</div>
