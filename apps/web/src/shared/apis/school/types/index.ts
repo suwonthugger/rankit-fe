@@ -18,3 +18,25 @@ export namespace GetSchoolList {
     totalPages: number;
   }
 }
+
+export namespace GetSchoolUserList {
+  export interface Params {
+    page: number;
+    schoolName: string;
+  }
+
+  interface User {
+    username: string;
+    profileImg: string;
+    userscore: number;
+    userRank: number;
+  }
+
+  export interface Res {
+    userInfoBySchools: User[];
+    currentPage: number;
+    startPage: number;
+    endPage: number;
+    totalPages: number;
+  }
+}

@@ -44,6 +44,7 @@ import { useIntroduction } from './_hooks/useIntroduction';
 
 const UserPage = () => {
   const username = useParams().userId as string;
+
   const router = useRouter();
   const queryClient = useQueryClient();
 

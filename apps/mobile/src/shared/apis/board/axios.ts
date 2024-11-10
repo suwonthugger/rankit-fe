@@ -11,6 +11,6 @@ export const getGuestbook = async (): Promise<GetGuestBook.Res> => {
   return response.data;
 };
 
-export const postGuestBook = async ({ content }: { content: string }) => {
-  await authClient.post(BOARD_URL.POST_GUESTBOOK, { content });
+export const postGuestBook = async (content: string) => {
+  await authClient.post(BOARD_URL.POST_GUESTBOOK, content);
 };

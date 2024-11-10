@@ -1,4 +1,4 @@
-import { TierTypes } from '@/app/user/[userId]/_components/profile/types';
+import { TierTypes } from '@/app/user/[userId]/_components/profile/_types';
 
 export namespace GetUserRank {
   export interface Params {

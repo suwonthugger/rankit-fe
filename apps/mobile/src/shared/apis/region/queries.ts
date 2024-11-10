@@ -1,6 +1,6 @@
 import { useInfiniteQuery } from '@tanstack/react-query';
 import { getRegionList, getRegionUserList } from './axios';
-import { GetRegionList, GetRegionUserList } from './types';
+import { GetRegionList } from './types';
 
 export const useGetRegionList = ({
   regionName,

@@ -12,7 +12,7 @@ export const usePostGuestBook = () => {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: (content: string) => postGuestBook({ content }),
+    mutationFn: (content: string) => postGuestBook(content),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['guestBook'] });
     },
