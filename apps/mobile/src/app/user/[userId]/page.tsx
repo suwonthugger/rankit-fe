@@ -57,7 +57,7 @@ const UserPage = () => {
   const { data: userRegion } = useGetUserRegion({ username });
   const { data: userLang } = useGetUserLang({ username });
   const { data: userExp } = useGetUserExp({ username });
-  const { data: suggestedFriends } = useGetSuggestFriend(isLoggedIn);
+  const { data: suggestedFriends } = useGetSuggestFriend(isLoggedIn, username);
   const { data: userIntroduction } = useGetUserIntroduction({ username });
 
   const {
