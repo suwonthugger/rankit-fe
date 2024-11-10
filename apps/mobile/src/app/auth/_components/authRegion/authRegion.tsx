@@ -42,7 +42,28 @@ const AuthRegion = ({ handleNextStep, 대학교 }: AuthRegionProps) => {
 
   const handle회원가입 = () => {
     mutate(
-      { univName: 대학교, region: 지역검색키워드 },
+      {
+        univName: 대학교.length === 0 ? null : 대학교,
+        region: 지역검색키워드.length === 0 ? null : 지역검색키워드,
+      },
+      {
+        onSuccess: () => {
+          handleNextStep('completion');
+        },
+        onError: (error) => {
+          alert('회원가입에 실패했습니다. 다시 시도해주세요.');
+          console.error(error);
+        },
+      },
+    );
+  };
+
+  const handle건너뛰기 = () => {
+    mutate(
+      {
+        univName: 대학교.length === 0 ? null : 대학교,
+        region: null,
+      },
       {
         onSuccess: () => {
           handleNextStep('completion');
@@ -110,7 +131,7 @@ const AuthRegion = ({ handleNextStep, 대학교 }: AuthRegionProps) => {
             cancelText="취소"
             confirmText="확인"
             triggerText="건너뛰기"
-            onConfirm={() => handleNextStep('completion')}
+            onConfirm={handle건너뛰기}
           />
         </div>
       </div>

@@ -56,6 +56,24 @@ const AuthRegion = ({ handleNextStep, 대학교 }: AuthRegionProps) => {
     );
   };
 
+  const handle건너뛰기 = () => {
+    mutate(
+      {
+        univName: 대학교.length === 0 ? null : 대학교,
+        region: null,
+      },
+      {
+        onSuccess: () => {
+          handleNextStep('completion');
+        },
+        onError: (error) => {
+          alert('회원가입에 실패했습니다. 다시 시도해주세요.');
+          console.error(error);
+        },
+      },
+    );
+  };
+
   return (
     <section className={sectionStyle}>
       <div>
@@ -115,7 +133,7 @@ const AuthRegion = ({ handleNextStep, 대학교 }: AuthRegionProps) => {
               cancelText="취소"
               confirmText="확인"
               triggerText="건너뛰기"
-              onConfirm={() => {}}
+              onConfirm={handle건너뛰기}
             />
           </div>
         </div>

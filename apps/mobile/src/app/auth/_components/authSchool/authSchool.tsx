@@ -100,6 +100,11 @@ const AuthSchool = ({ handleNextStep, handle대학교변경 }: AuthSchoolProps) 
     );
   };
 
+  const handle건너뛰기 = () => {
+    handleNextStep('region');
+    handle대학교변경('');
+  };
+
   return (
     <div className={container}>
       <div className={topDivStyle}>
@@ -179,7 +184,7 @@ const AuthSchool = ({ handleNextStep, handle대학교변경 }: AuthSchoolProps) 
             cancelText="취소"
             confirmText="확인"
             triggerText="건너뛰기"
-            onConfirm={() => handleNextStep('region')}
+            onConfirm={handle건너뛰기}
           />
         </div>
       </div>
