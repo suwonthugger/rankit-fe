@@ -43,7 +43,8 @@ export default function RootLayout({
       );
     };
 
-    // 현재 호스트가 모바일용 도메인이 아니고 모바일 기기일 경우 리다이렉트
+    console.log('isMobile 테스트', isMobile(), navigator.userAgent);
+
     if (isMobile() && window.location.hostname === 'rankit.run') {
       const newUrl = `https://m.rankit.run${window.location.pathname}`;
       window.location.replace(newUrl);
