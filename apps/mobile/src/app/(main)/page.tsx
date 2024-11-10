@@ -16,6 +16,7 @@ import {
   paragraphStyle,
   textCenter,
   topDivStyle,
+  InputListPlaceholderStyle,
 } from './main.css';
 
 const MainPage = () => {
@@ -60,10 +61,28 @@ const MainPage = () => {
 
         <Input
           device="mobile"
-          variant={'search'}
-          placeholder={'github 아이디 검색'}
-          className={inputStyle}
-        />
+          value={유저검색키워드}
+          onChange={handle유저검색키워드변경}
+          variant="search"
+          placeholder="github 아이디 검색"
+          className={inputStyle}>
+          <Input.List>
+            {filteredData?.length > 0 ? (
+              filteredData.map((user) => (
+                <Link key={user.username} href={`/user/${user.username}`}>
+                  <Input.UserItem
+                    userRank={user.userRank}
+                    userName={user.username}
+                    profileImg={user.profileImg}
+                    userScore={user.userscore}
+                  />
+                </Link>
+              ))
+            ) : (
+              <p className={InputListPlaceholderStyle}>검색 결과가 없습니다.</p>
+            )}
+          </Input.List>
+        </Input>
       </div>
 
       <div className={bottomDivStyle}>
