@@ -1,4 +1,3 @@
-// middleware.js
 import { NextRequest, NextResponse } from 'next/server';
 
 export function middleware(req: NextRequest) {
@@ -6,10 +5,7 @@ export function middleware(req: NextRequest) {
   const host = req.headers.get('host') || '';
   const pathname = req.nextUrl.pathname;
 
-  // 모바일 서브도메인으로 이미 접속한 경우 무시
-  if (host.startsWith('m.')) {
-    return NextResponse.next();
-  }
+  console.log(`Middleware invoked for host: ${host}, path: ${pathname}`);
 
   // 모바일 기기 감지
   const userAgent = req.headers.get('user-agent') || '';
@@ -17,6 +13,8 @@ export function middleware(req: NextRequest) {
     /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
       userAgent,
     );
+
+  console.log(isMobile);
 
   if (isMobile) {
     // 모바일 서브도메인으로 리다이렉션
