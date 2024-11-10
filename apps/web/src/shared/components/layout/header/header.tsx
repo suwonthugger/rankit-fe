@@ -40,7 +40,7 @@ const Header = () => {
     };
     console.log(navigator.userAgent, isMobile(), window.location.hostname);
 
-    if (isMobile() && window.location.hostname === 'rankit.run') {
+    if (isMobile() && window.location.hostname === 'www.rankit.run') {
       const newUrl = `https://m.rankit.run${window.location.pathname}`;
       window.location.replace(newUrl);
     }
