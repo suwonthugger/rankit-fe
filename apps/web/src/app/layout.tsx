@@ -1,5 +1,3 @@
-'use client';
-
 import { Theme } from '@radix-ui/themes';
 import '@radix-ui/themes/styles.css';
 import type { Metadata } from 'next';
@@ -35,22 +33,6 @@ export default function RootLayout({
   children: React.ReactNode;
   modal: React.ReactNode;
 }>) {
-  useEffect(() => {
-    // 모바일 기기 확인 함수
-    const isMobile = () => {
-      return /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-        navigator.userAgent,
-      );
-    };
-
-    console.log('isMobile 테스트', isMobile(), navigator.userAgent);
-
-    if (isMobile() && window.location.hostname === 'rankit.run') {
-      const newUrl = `https://m.rankit.run${window.location.pathname}`;
-      window.location.replace(newUrl);
-    }
-  }, []);
-
   return (
     <html lang="en">
       <head>

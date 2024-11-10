@@ -33,6 +33,17 @@ const Header = () => {
   const menuRef = useRef(null);
 
   React.useEffect(() => {
+    const isMobile = () => {
+      return /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent,
+      );
+    };
+
+    if (isMobile() && window.location.hostname === 'rankit.run') {
+      const newUrl = `https://m.rankit.run${window.location.pathname}`;
+      window.location.replace(newUrl);
+    }
+
     const handleResize = () => {
       if (window.innerWidth <= 700) {
         console.log('화면 너비가 700px 이하입니다.');
