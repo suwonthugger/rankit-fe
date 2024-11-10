@@ -40,6 +40,7 @@ const MainSetting = () => {
   const handleDelAuth = () => {
     회원탈퇴함수(undefined, {
       onSuccess: () => {
+        localStorage.removeItem('accessToken');
         window.location.href = '/';
       },
     });

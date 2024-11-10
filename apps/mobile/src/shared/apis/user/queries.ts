@@ -115,7 +115,7 @@ export const usePutSchool = () => {
         certificateCode,
       }),
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['userInfo'] });
+      queryClient.invalidateQueries({ queryKey: ['user', 'userSchool'] });
     },
     onError: () => {
       alert('학교 변경에 실패했습니다.');
@@ -129,7 +129,7 @@ export const usePutRegion = () => {
     mutationFn: (modifyRegionName: string) => putRegion(modifyRegionName),
     onSuccess: () => {
       alert('지역이 변경되었습니다.');
-      queryClient.invalidateQueries({ queryKey: ['userInfo'] });
+      queryClient.invalidateQueries({ queryKey: ['user', 'userRegion'] });
     },
     onError: () => {
       alert('지역 변경에 실패했습니다.');
