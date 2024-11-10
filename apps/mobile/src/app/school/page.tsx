@@ -112,13 +112,13 @@ const SchoolPage = () => {
           device="mobile"
           title={대학선택여부 ? '아이디' : '지역명'}
           fetchNextPage={
-            대학선택여부 ? fetchNextPage : schoolUserDataFetchNextPage
+            대학선택여부 ? schoolUserDataFetchNextPage : fetchNextPage
           }
-          hasNextPage={대학선택여부 ? hasNextPage : schoolUserDataHasNextPage}
+          hasNextPage={대학선택여부 ? schoolUserDataHasNextPage : hasNextPage}
           isFetchingNextPage={
-            대학선택여부 ? isFetchingNextPage : schoolUserDataIsFetchingNextPage
+            대학선택여부 ? schoolUserDataIsFetchingNextPage : isFetchingNextPage
           }
-          isLoading={대학선택여부 ? isLoading : schoolUserDataIsLoading}>
+          isLoading={대학선택여부 ? schoolUserDataIsLoading : isLoading}>
           {대학선택여부
             ? schoolUserData?.pages.map((page) =>
                 page.userInfoBySchools?.map((user) => (

@@ -109,13 +109,13 @@ const SchoolPage = () => {
           className={boardStyle}
           title={지역선택여부 ? '아이디' : '지역명'}
           fetchNextPage={
-            지역선택여부 ? fetchNextPage : regionUserDataFetchNextPage
+            지역선택여부 ? regionUserDataFetchNextPage : fetchNextPage
           }
-          hasNextPage={지역선택여부 ? hasNextPage : regionUserDataHasNextPage}
+          hasNextPage={지역선택여부 ? regionUserDataHasNextPage : hasNextPage}
           isFetchingNextPage={
-            지역선택여부 ? isFetchingNextPage : regionUserDataIsFetchingNextPage
+            지역선택여부 ? regionUserDataIsFetchingNextPage : isFetchingNextPage
           }
-          isLoading={지역선택여부 ? isLoading : regionUserDataIsLoading}>
+          isLoading={지역선택여부 ? regionUserDataIsLoading : isLoading}>
           {지역선택여부
             ? regionUserData?.pages.map((page) =>
                 page.userInfoByRegion.map((user) => (
