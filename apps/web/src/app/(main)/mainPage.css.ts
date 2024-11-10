@@ -14,7 +14,9 @@ export const topDivStyle = style({
   justifyContent: 'center',
   alignContent: 'center',
   width: '100%',
-  backgroundColor: globalTheme.colors.gray_D7,
+  backgroundImage: 'url(/images/main_bg_img.jpg)',
+  backgroundPosition: 'center',
+  backgroundSize: 'cover',
 });
 
 export const topDivContentStyle = style({
