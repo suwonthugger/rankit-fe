@@ -13,6 +13,7 @@ import {
 
 const AuthGithub = () => {
   const 깃허브로그인페이지로이동 = () => {
+    console.log(process.env.NEXT_PUBLIC_GITHUB_AUTH_URL);
     if (process.env.NEXT_PUBLIC_GITHUB_AUTH_URL)
       window.location.href = process.env.NEXT_PUBLIC_GITHUB_AUTH_URL;
   };
