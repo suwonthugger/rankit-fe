@@ -36,7 +36,7 @@ const Header = () => {
 
   useClickOutside(menuRef, handleMenuClose);
 
-  React.useEffect(() => {
+  React.useLayoutEffect(() => {
     const isMobile = () => {
       return /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
         navigator.userAgent,
@@ -47,7 +47,9 @@ const Header = () => {
       const newUrl = `https://m.rankit.run${window.location.pathname}${window.location.search}`;
       window.location.replace(newUrl);
     }
+  });
 
+  React.useEffect(() => {
     setIsLoggedIn(!!getAuthHeader());
 
     const handleResize = () => {
