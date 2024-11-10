@@ -2,7 +2,9 @@
 
 import Link from 'next/link';
 import React, { useRef, useState } from 'react';
+import useClickOutside from '@/shared/hooks/useClickOutside';
 import { useGetUserInfo } from '@/shared/apis/auth/queries';
+import { getAuthHeader } from '@/shared/utils/auth';
 import CloseIcon from '@/shared/assets/svgs/close_icon.svg';
 import Logo from '@/shared/assets/svgs/logo_sm.svg';
 import HamburgerIcon from '@/shared/assets/svgs/menu_icon.svg';
@@ -32,6 +34,8 @@ const Header = () => {
 
   const menuRef = useRef(null);
 
+  useClickOutside(menuRef, handleMenuClose);
+
   React.useEffect(() => {
     const isMobile = () => {
       return /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
@@ -43,6 +47,8 @@ const Header = () => {
       const newUrl = `https://m.rankit.run${window.location.pathname}${window.location.search}`;
       window.location.replace(newUrl);
     }
+
+    setIsLoggedIn(!!getAuthHeader());
 
     const handleResize = () => {
       if (window.innerWidth <= 700) {
