@@ -38,10 +38,14 @@ const Header = () => {
         navigator.userAgent,
       );
     };
+
     console.log(navigator.userAgent, isMobile(), window.location.hostname);
+    console.log(
+      `https://m.rankit.run${window.location.pathname}${window.location.search}`,
+    );
 
     if (isMobile() && window.location.hostname === 'www.rankit.run') {
-      const newUrl = `https://m.rankit.run${window.location.pathname}`;
+      const newUrl = `https://m.rankit.run${window.location.pathname}${window.location.search}`;
       window.location.replace(newUrl);
     }
 
