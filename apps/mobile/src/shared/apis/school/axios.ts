@@ -23,7 +23,7 @@ export const getSchoolUserList = async ({
   page,
   schoolName,
 }: GetSchoolUserList.Params): Promise<GetSchoolUserList.Res> => {
-  const response = await client.get(SCHOOL_URL.GET_SCHOOL_LIST, {
+  const response = await client.get(SCHOOL_URL.GET_SCHOOL_USER_LIST, {
     params: {
       page,
       schoolName,

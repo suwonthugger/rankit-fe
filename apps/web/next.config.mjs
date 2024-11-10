@@ -12,9 +12,6 @@ const nextConfig = {
 
     return config;
   },
-  experimental: {
-    middleware: true,
-  },
   images: {
     dangerouslyAllowSVG: true, // svg 이미지 허용
     contentDispositionType: 'attachment',
