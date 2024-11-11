@@ -3,6 +3,7 @@ export namespace GetGuestBook {
     userId: number;
     profileImg: string;
     boardContent: string;
+    username: string;
   }
 
   export type Res = GuestBookInfo[];

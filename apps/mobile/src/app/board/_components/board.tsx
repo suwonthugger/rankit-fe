@@ -18,9 +18,9 @@ const Board = () => {
       </div>
 
       <ul className={boardListStyle}>
-        {data?.map(({ userId, profileImg, boardContent }, index) => (
+        {data?.map(({ userId, profileImg, boardContent, username }, index) => (
           <li key={`${userId}-${boardContent}-${index}`}>
-            <Link href={`/user/${userId}`} className={boardRowStyle}>
+            <Link href={`/user/${username}`} className={boardRowStyle}>
               <CircleImage src={profileImg} />
               <p>{boardContent}</p>
             </Link>
