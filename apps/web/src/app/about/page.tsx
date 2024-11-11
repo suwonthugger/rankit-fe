@@ -1,12 +1,14 @@
 'use client';
 
 import Image from 'next/image';
+import AboutImg1 from '@/shared/assets/images/aboutImg1.png';
+import AboutImg2 from '@/shared/assets/images/aboutImg2.png';
+import AboutImg3 from '@/shared/assets/images/aboutImg3.png';
 import BadgeImg from '@/shared/assets/images/badgeImg.png';
 import daewon from '@/shared/assets/images/rankit_developer_DWSEO.jpg';
 import hyojun from '@/shared/assets/images/rankit_developer_HJKIM.jpg';
 import seungjun from '@/shared/assets/images/rankit_developer_SJLEE.jpg';
 import wooseok from '@/shared/assets/images/rankit_developer_WSPARK.jpg';
-import ImsiImg from '@/shared/assets/svgs/imsiImg.svg';
 import Tier1 from '@/shared/assets/svgs/tier_img/tier1.svg';
 import Tier2 from '@/shared/assets/svgs/tier_img/tier2.svg';
 import Tier3 from '@/shared/assets/svgs/tier_img/tier3.svg';
@@ -142,7 +144,7 @@ const AboutPage = () => {
         </div>
 
         <div>
-          <ImsiImg />
+          <Image src={AboutImg1} alt="이미지1" width={456} />
         </div>
 
         <div className={rightDivStyle}>
@@ -162,11 +164,11 @@ const AboutPage = () => {
             <br /> rankit 순위를 <br />
             확인해보세요.
           </h1>
-          <ImsiImg />
+          <Image src={AboutImg2} alt="이미지2" width={456} />
         </div>
 
         <div className={rightDivStyle}>
-          <ImsiImg />
+          <Image src={AboutImg3} alt="이미지3" width={456} />
         </div>
       </section>
 

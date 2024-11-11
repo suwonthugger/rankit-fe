@@ -1,8 +1,11 @@
+import Image from 'next/image';
+import AboutImg1 from '@/shared/assets/images/aboutImg1.png';
+import AboutImg2 from '@/shared/assets/images/aboutImg2.png';
+import AboutImg3 from '@/shared/assets/images/aboutImg3.png';
 import daewon from '@/shared/assets/images/rankit_developer_DWSEO.jpg';
 import hyojun from '@/shared/assets/images/rankit_developer_HJKIM.jpg';
 import seungjun from '@/shared/assets/images/rankit_developer_SJLEE.jpg';
 import wooseok from '@/shared/assets/images/rankit_developer_WSPARK.jpg';
-import ImsiImg from '@/shared/assets/svgs/imsiImg.svg';
 import Tier1 from '@/shared/assets/svgs/tier/default/tier_1.svg';
 import Tier2 from '@/shared/assets/svgs/tier/default/tier_2.svg';
 import Tier3 from '@/shared/assets/svgs/tier/default/tier_3.svg';
@@ -113,7 +116,7 @@ const AboutPage = () => {
           </div>
 
           <div className={imgStyle}>
-            <ImsiImg />
+            <Image src={AboutImg1} alt="이미지2" width={351} />
           </div>
 
           <div>
@@ -135,10 +138,10 @@ const AboutPage = () => {
             </h1>
           </div>
           <div className={imgStyle}>
-            <ImsiImg />
+            <Image src={AboutImg2} alt="이미지2" width={351} />
           </div>
           <div className={imgStyle}>
-            <ImsiImg />
+            <Image src={AboutImg3} alt="이미지3" width={351} />
           </div>
         </section>
 
