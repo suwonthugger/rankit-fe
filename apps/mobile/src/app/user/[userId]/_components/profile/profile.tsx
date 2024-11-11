@@ -22,7 +22,7 @@ const Profile = ({ profileImg, language, userName, tier }: ProfileProps) => {
   return (
     <div className={containerStyle}>
       <div className={profileImgDivStyle}>
-        <SVGTier size="sm" className={tierImgStyle} tier={tier} />
+        <SVGTier size="Lg" className={tierImgStyle} tier={tier} />
         <CircleImage src={profileImg} size="mobileLg" />
       </div>
 
