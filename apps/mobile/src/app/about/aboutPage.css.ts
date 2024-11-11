@@ -36,10 +36,9 @@ export const sectionBetweenStyle = style([
 ]);
 
 export const imgStyle = style({
-  maxWidth: '50%',
-  width: 'auto',
-  height: 'auto',
   objectFit: 'contain',
+  marginTop: '4rem',
+  marginBottom: '4rem',
 });
 
 export const headingStyle1 = style({
