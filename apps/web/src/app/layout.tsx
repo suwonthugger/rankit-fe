@@ -37,6 +37,10 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+        <meta
+          name="google-site-verification"
+          content="P-rCcGplO7hab3PTDc1tNeRT0uO8Q1vHSgNBcQBOXJY"
+        />
       </head>
       <body>
         <ReactQueryProviders>
