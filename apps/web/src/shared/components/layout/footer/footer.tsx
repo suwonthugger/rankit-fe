@@ -7,7 +7,7 @@ const Footer = () => {
       <div className={contentStyle}>
         <button>개인정보처리방침</button>
         <button>서비스 이용약관</button>
-        <p>Contact | gitbal2019@gmail.com</p>
+        <p>Contact | rankit.run@gmail.com</p>
       </div>
     </footer>
   );
