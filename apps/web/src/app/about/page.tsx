@@ -52,7 +52,7 @@ const AboutPage = () => {
           </p>
         </div>
       </section>
-      <AboutBadgeCopyBox badgeLink="[![rankit-badge](https://rankit.run/badge?name=깃허브아이디)](https://www.rankit.run)" />
+      <AboutBadgeCopyBox badgeLink="[![rankit-badge](https://badge.rankit.run/badge?name=깃허브아이디)](https://www.rankit.run)" />
 
       <section className={sectionStyle}>
         <div>
