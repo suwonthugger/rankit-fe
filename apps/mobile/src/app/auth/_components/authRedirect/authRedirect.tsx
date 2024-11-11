@@ -10,6 +10,12 @@ interface AuthRedirectProps {
   handleNextStep: (step: string) => void;
 }
 
+const setCookie = (name: string, value: string, days = 7) => {
+  const date = new Date();
+  date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000); // 쿠키 만료일 설정
+  document.cookie = `${name}=${value}; expires=${date.toUTCString()}; path=/; domain=.rankit.run; Secure`;
+};
+
 const AuthRedirect = ({ handleNextStep }: AuthRedirectProps) => {
   const queryClient = useQueryClient();
   const router = useRouter();
@@ -21,8 +27,8 @@ const AuthRedirect = ({ handleNextStep }: AuthRedirectProps) => {
 
   useEffect(() => {
     if (accessToken && refreshToken) {
-      localStorage.setItem('accessToken', accessToken);
-      localStorage.setItem('refreshToken', refreshToken);
+      setCookie('accessToken', accessToken);
+      setCookie('refreshToken', refreshToken);
     } else {
       router.replace('?step=github', { scroll: false });
       console.error('토큰이 제공되지 않았습니다.');

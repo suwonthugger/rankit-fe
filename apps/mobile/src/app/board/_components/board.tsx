@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import CircleImage from '@/shared/components/circleImage/circleImage';
 import { useGetGuestbook } from '@/shared/apis/board/queries';
 import {
@@ -18,11 +19,11 @@ const Board = () => {
 
       <ul className={boardListStyle}>
         {data?.map(({ userId, profileImg, boardContent }, index) => (
-          <li
-            key={`${userId}-${boardContent}-${index}`}
-            className={boardRowStyle}>
-            <CircleImage src={profileImg} />
-            <p>{boardContent}</p>
+          <li key={`${userId}-${boardContent}-${index}`}>
+            <Link href={`/user/${userId}`} className={boardRowStyle}>
+              <CircleImage src={profileImg} />
+              <p>{boardContent}</p>
+            </Link>
           </li>
         ))}
       </ul>

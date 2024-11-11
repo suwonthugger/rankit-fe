@@ -156,6 +156,8 @@ const UserPage = () => {
                 nextTier={
                   userInfo?.grade ? getNextTier(userInfo?.grade) : 'YELLOW'
                 }
+                currentScore={userExp?.score}
+                nextScore={userExp?.remainScore}
               />
 
               <div className={middleContentDivStyle}>

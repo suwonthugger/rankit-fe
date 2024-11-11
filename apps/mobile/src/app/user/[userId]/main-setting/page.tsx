@@ -21,6 +21,10 @@ import {
   topDivIconStyle,
 } from './main-setting.css';
 
+const deleteCookie = (name: string) => {
+  document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.rankit.run`;
+};
+
 const MainSetting = () => {
   const router = useRouter();
 
@@ -33,14 +37,14 @@ const MainSetting = () => {
 
   const handleLogOut = () => {
     queryClient.invalidateQueries({ queryKey: ['userInfo', getAuthHeader()] });
-    localStorage.removeItem('accessToken');
+    deleteCookie('accessToken');
     window.location.href = '/';
   };
 
   const handleDelAuth = () => {
     회원탈퇴함수(undefined, {
       onSuccess: () => {
-        localStorage.removeItem('accessToken');
+        deleteCookie('accessToken');
         window.location.href = '/';
       },
     });

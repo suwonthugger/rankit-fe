@@ -16,9 +16,17 @@ interface ProgressBarProps {
   width: number;
   currentTier?: TierTypes;
   nextTier?: TierTypes;
+  currentScore?: number;
+  nextScore?: number;
 }
 
-const ProgressBar = ({ width, currentTier, nextTier }: ProgressBarProps) => {
+const ProgressBar = ({
+  width,
+  currentTier,
+  nextTier,
+  currentScore,
+  nextScore,
+}: ProgressBarProps) => {
   const dynamicWidth = `${width}%`;
 
   return (
@@ -35,12 +43,14 @@ const ProgressBar = ({ width, currentTier, nextTier }: ProgressBarProps) => {
 
       <div className={currentTierDivStyle}>
         <p>{`level ${currentTier}`}</p>
-        <span className={spanStyle}>5,000</span>
+        <span className={spanStyle}>
+          {currentScore ? currentScore.toLocaleString() : 0}
+        </span>
       </div>
 
       <div className={nextTierDivStyle}>
         <p>{`level ${nextTier} 까지`}</p>
-        <p>3,000</p>
+        <p>{nextScore ? nextScore.toLocaleString() : 0}</p>
       </div>
     </div>
   );

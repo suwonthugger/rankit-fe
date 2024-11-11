@@ -15,6 +15,10 @@ import {
   paragraphStyle2,
 } from './modalContentMainSetting.css';
 
+const deleteCookie = (name: string) => {
+  document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.rankit.run`;
+};
+
 export function ModalContentMainSetting() {
   const queryClient = useQueryClient();
 
@@ -25,14 +29,14 @@ export function ModalContentMainSetting() {
 
   const handleLogOut = () => {
     queryClient.invalidateQueries({ queryKey: ['userInfo', getAuthHeader()] });
-    localStorage.removeItem('accessToken');
+    deleteCookie('accessToken');
     window.location.href = '/';
   };
 
   const handleDelAuth = () => {
     회원탈퇴함수(undefined, {
       onSuccess: () => {
-        localStorage.removeItem('accessToken');
+        deleteCookie('accessToken');
         window.location.href = '/';
       },
     });

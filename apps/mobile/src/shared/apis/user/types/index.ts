@@ -53,6 +53,8 @@ export namespace GetUserExp {
 
   export interface Res {
     percent: number;
+    score: number;
+    remainScore: number;
   }
 }
 
