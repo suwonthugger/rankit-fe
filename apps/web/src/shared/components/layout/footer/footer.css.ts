@@ -10,6 +10,11 @@ export const footerStlye = style({
   height: '12rem',
 });
 
+export const linkBtnStyle = style({
+  ':hover': {
+    textDecoration: 'underline',
+  },
+});
 export const contentStyle = style({
   ...globalTheme.fonts.headerReg16,
   display: 'flex',
