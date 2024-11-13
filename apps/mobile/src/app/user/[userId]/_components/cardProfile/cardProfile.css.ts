@@ -40,12 +40,12 @@ export const titleDivStyle = style({
 export const labelDivStyle = style({
   display: 'flex',
   gap: '0.5em',
+  marginBottom: '1.36rem',
 });
 
 export const labelStyle = style({
   ...globalTheme.fonts.detailMed12,
   marginTop: '1.0rem',
-  marginBottom: '1.36rem',
   borderRadius: 4,
   padding: '0.4rem 0.8rem',
   color: globalTheme.colors.blue_66,
