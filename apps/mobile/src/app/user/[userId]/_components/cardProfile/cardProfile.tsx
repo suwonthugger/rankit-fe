@@ -49,8 +49,8 @@ const CardProfile = ({
         </div>
 
         <div className={labelDivStyle}>
-          <span className={labelStyle}>{schoolName}</span>
-          <span className={labelStyle}>{regionName}</span>
+          {schoolName && <span className={labelStyle}>{schoolName}</span>}
+          {regionName && <span className={labelStyle}>{regionName}</span>}
         </div>
       </div>
     </div>

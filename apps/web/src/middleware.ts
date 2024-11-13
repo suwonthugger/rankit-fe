@@ -1,4 +1,3 @@
-// apps/web/middleware.ts
 import { NextRequest, NextResponse } from 'next/server';
 
 export function middleware(req: NextRequest) {
@@ -13,12 +12,9 @@ export function middleware(req: NextRequest) {
       userAgent,
     );
 
-  if (host === 'm.rankit.run') {
-    return NextResponse.next();
-  }
-
   if (isMobile) {
-    url.hostname = 'm.rankit.run';
+    // 모바일 서브도메인으로 리다이렉션
+    url.hostname = `m.${url.hostname}`;
     return NextResponse.redirect(url);
   }
 

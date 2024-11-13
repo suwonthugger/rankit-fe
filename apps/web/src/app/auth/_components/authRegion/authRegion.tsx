@@ -41,9 +41,11 @@ const AuthRegion = ({ handleNextStep, 대학교 }: AuthRegionProps) => {
   };
 
   const handle회원가입 = () => {
-    console.log(대학교, 지역검색키워드);
     mutate(
-      { univName: 대학교, region: 지역검색키워드 },
+      {
+        univName: 대학교.length === 0 ? null : 대학교,
+        region: 지역검색키워드.length === 0 ? null : 지역검색키워드,
+      },
       {
         onSuccess: () => {
           handleNextStep('completion');

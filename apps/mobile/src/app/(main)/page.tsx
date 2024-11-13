@@ -24,20 +24,8 @@ const MainPage = () => {
 
   const { data } = useGetUserList({ searchedname: 유저검색키워드 });
 
-  const filteredData =
-    data?.userList?.filter((user) => user.username.includes(유저검색키워드)) ||
-    [];
-
-  const bottomDivRef = useRef<HTMLDivElement | null>(null);
-
   const handle유저검색키워드변경 = (e: React.ChangeEvent<HTMLInputElement>) => {
     set유저검색키워드(e.target.value);
-  };
-
-  const handleScrollToButtons = () => {
-    if (bottomDivRef.current) {
-      bottomDivRef.current.scrollIntoView({ behavior: 'smooth' });
-    }
   };
 
   return (
@@ -67,8 +55,8 @@ const MainPage = () => {
           placeholder="github 아이디 검색"
           className={inputStyle}>
           <Input.List>
-            {filteredData?.length > 0 ? (
-              filteredData.map((user) => (
+            {data?.userList && data.userList.length > 0 ? (
+              data?.userList.map((user) => (
                 <Link key={user.username} href={`/user/${user.username}`}>
                   <Input.UserItem
                     userRank={user.userRank}
