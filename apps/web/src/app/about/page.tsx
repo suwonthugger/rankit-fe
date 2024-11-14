@@ -187,7 +187,7 @@ const AboutPage = () => {
           userTier={2}
           userName="이승준"
           userComment="맥북 쓰고 싶어요."
-          userGithub="https://github.com/leesj000603"
+          userGithub="https://github.com/Oodls"
           userImage={seungjun}
         />
         <AboutDeveloper
